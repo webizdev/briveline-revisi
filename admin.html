@@ -254,6 +254,7 @@
                 <div class="nav-item" onclick="showSection('usp')"><i data-lucide="star"></i> Seksi USP</div>
                 <div class="nav-item" onclick="showSection('harga')"><i data-lucide="tag"></i> Seksi Harga</div>
                 <div class="nav-item" onclick="showSection('katalog')"><i data-lucide="image"></i> Seksi Katalog</div>
+                <div class="nav-item" onclick="showSection('kategori')"><i data-lucide="filter"></i> Kategori Katalog</div>
                 <div class="nav-item" onclick="showSection('carousel')"><i data-lucide="repeat"></i> Carousel Foto</div>
                 <div class="nav-item" onclick="showSection('testimonial')"><i data-lucide="message-square"></i> Testimonial</div>
                 <div class="nav-item" onclick="showSection('proses')"><i data-lucide="rocket"></i> Cara Order</div>
@@ -490,6 +491,17 @@
                 </div>
             </section>
 
+            <!-- KATEGORI SECTION -->
+            <section id="sec-kategori" class="content-sec hidden">
+                <div class="header">
+                    <h1>Kategori Katalog</h1>
+                    <button class="btn" style="width: auto; padding: 0.5rem 1.5rem" onclick="openModal('kategori')">+ Tambah Kategori</button>
+                </div>
+                <div id="kategori-list" class="grid">
+                    <!-- Categories load here -->
+                </div>
+            </section>
+
             <!-- CAROUSEL SECTION -->
             <section id="sec-carousel" class="content-sec hidden">
                 <div class="header">
@@ -680,6 +692,7 @@
             if (id === 'usp') loadUSP();
             if (id === 'harga') loadHarga();
             if (id === 'katalog') loadKatalog();
+            if (id === 'kategori') loadKategori();
             if (id === 'carousel') loadCarousel();
             if (id === 'testimonial') loadTestimonial();
             if (id === 'faq') loadFAQ();
@@ -856,6 +869,23 @@
             `).join('') || '<p>Belum ada produk.</p>';
         }
 
+        async function loadKategori() {
+            const { data } = await sb.from('braveline_kategori').select('*').order('urutan', { ascending: true });
+            const list = document.getElementById('kategori-list');
+            list.innerHTML = data?.map(item => `
+                <div class="card">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">${item.emoji || '📁'}</div>
+                    <h3 style="margin-bottom: 0.5rem;">${item.nama}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Kode: ${item.kode_filter} | Urutan: ${item.urutan}</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 10px;">
+                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: var(--bg-input)" onclick="editItem('kategori', '${item.id}')">EDIT</button>
+                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: #330000" onclick="deleteItem('kategori', '${item.id}')">HAPUS</button>
+                    </div>
+                </div>
+            `).join('') || '<p>Belum ada kategori.</p>';
+            lucide.createIcons();
+        }
+
         async function loadProses() {
             const { data } = await sb.from('braveline_proses_order').select('*').order('nomor', { ascending: true });
             const list = document.getElementById('proses-list');
@@ -922,7 +952,7 @@
 
         // --- CRUD OPERATIONS ---
 
-        function openModal(type, id = null) {
+        async function openModal(type, id = null) {
             const modal = document.getElementById('crud-modal');
             const title = document.getElementById('modal-title');
             const fields = document.getElementById('modal-fields');
@@ -965,7 +995,7 @@
                 title.innerText = id ? 'Edit Produk' : 'Tambah Produk';
                 html = `
                     <div class="form-group"><label>Nama Produk</label><input type="text" name="nama_produk" required></div>
-                    <div class="form-group"><label>Kategori</label><input type="text" name="kategori" placeholder="JERSEY / SABLON"></div>
+                    <div class="form-group"><label>Kategori</label><select name="kategori" id="katalog-kategori-select"><option value="">Loading...</option></select></div>
                     <div class="form-group"><label>Tag Promo</label><input type="text" name="tag_promo" placeholder="DISKON 10%"></div>
                     <div class="form-group"><label>Foto Produk</label>
                         <div class="img-upload-box" onclick="document.getElementById('file-inp').click()">
@@ -987,6 +1017,14 @@
                         </div>
                     </div>
                     <div class="form-group"><label>Urutan</label><input type="number" name="urutan" value="0"></div>
+                `;
+            } else if (type === 'kategori') {
+                title.innerText = id ? 'Edit Kategori' : 'Tambah Kategori';
+                html = `
+                    <div class="form-group"><label>Emoji</label><input type="text" name="emoji" placeholder="⚽"></div>
+                    <div class="form-group"><label>Nama Kategori</label><input type="text" name="nama" required placeholder="Futsal/Bola"></div>
+                    <div class="form-group"><label>Kode Filter (Unik)</label><input type="text" name="kode_filter" required placeholder="0, 1, atau nama"></div>
+                    <div class="form-group"><label>Urutan (Angka)</label><input type="number" name="urutan" value="0"></div>
                 `;
             } else if (type === 'testimonial') {
                 title.innerText = id ? 'Edit Testimonial' : 'Tambah Testimonial';
@@ -1012,7 +1050,16 @@
                 `;
             }
             fields.innerHTML = html;
-            if (id) fillModalData(type, id);
+            
+            if (type === 'katalog') {
+                const { data: cats } = await sb.from('braveline_kategori').select('*').order('urutan', { ascending: true });
+                const selectEl = document.getElementById('katalog-kategori-select');
+                if (selectEl) {
+                    selectEl.innerHTML = cats ? cats.map(c => `<option value="${c.kode_filter}">${c.nama}</option>`).join('') : '<option value="">Tidak ada kategori</option>';
+                }
+            }
+
+            if (id) await fillModalData(type, id);
             lucide.createIcons();
         }
 
@@ -1022,6 +1069,7 @@
                 'usp': 'braveline_usp_cards', 
                 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog',
+                'kategori': 'braveline_kategori',
                 'testimonial': 'braveline_testimonials',
                 'faq': 'braveline_faq',
                 'proses': 'braveline_proses_order'
@@ -1048,6 +1096,7 @@
                 'trustbar': 'braveline_trust_bar',
                 'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
+                'kategori': 'braveline_kategori',
                 'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
                 'proses': 'braveline_proses_order'
             };
@@ -1079,6 +1128,7 @@
                     if (type === 'usp') loadUSP();
                     if (type === 'harga') loadHarga();
                     if (type === 'katalog') loadKatalog();
+                    if (type === 'kategori') loadKategori();
                     if (type === 'carousel') loadCarousel();
                     if (type === 'testimonial') loadTestimonial();
                     if (type === 'faq') loadFAQ();
@@ -1094,6 +1144,7 @@
                 'trustbar': 'braveline_trust_bar',
                 'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
+                'kategori': 'braveline_kategori',
                 'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
                 'proses': 'braveline_proses_order'
             };
@@ -1104,6 +1155,7 @@
                 if (type === 'usp') loadUSP();
                 if (type === 'harga') loadHarga();
                 if (type === 'katalog') loadKatalog();
+                if (type === 'kategori') loadKategori();
                 if (type === 'carousel') loadCarousel();
                 if (type === 'testimonial') loadTestimonial();
                 if (type === 'faq') loadFAQ();
