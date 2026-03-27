@@ -859,7 +859,7 @@
                             <h3 style="font-size: 1.2rem">${item.nama_produk}</h3>
                             <span style="color: var(--primary); font-weight: 900;">${item.tag_promo || ''}</span>
                         </div>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">${item.kategori}</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">${item.kategori} ${item.marketplace_link ? '<span style="color: var(--secondary);">🔗</span>' : ''}</p>
                         <div style="margin-top: 1rem; display: flex; gap: 10px;">
                             <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: var(--bg-input)" onclick="editItem('katalog', '${item.id}')">EDIT</button>
                             <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: #330000" onclick="deleteItem('katalog', '${item.id}')">HAPUS</button>
@@ -997,6 +997,7 @@
                     <div class="form-group"><label>Nama Produk</label><input type="text" name="nama_produk" required></div>
                     <div class="form-group"><label>Kategori</label><select name="kategori" id="katalog-kategori-select"><option value="">Loading...</option></select></div>
                     <div class="form-group"><label>Tag Promo</label><input type="text" name="tag_promo" placeholder="DISKON 10%"></div>
+                    <div class="form-group"><label>🔗 Link Marketplace</label><input type="url" name="marketplace_link" placeholder="https://shopee.co.id/produk-jersey..."></div>
                     <div class="form-group"><label>Foto Produk</label>
                         <div class="img-upload-box" onclick="document.getElementById('file-inp').click()">
                             <p id="upload-status">Klik untuk Pilih Foto (WebP/JPG)</p>
