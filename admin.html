@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -250,6 +250,7 @@
                 <div class="nav-item active" onclick="showSection('dashboard')"><i data-lucide="home"></i> Dashboard</div>
                 <div class="nav-item" onclick="showSection('panduan')"><i data-lucide="book-open"></i> Panduan Penggunaan</div>
                 <div class="nav-item" onclick="showSection('hero')"><i data-lucide="layout-template"></i> Seksi Hero</div>
+                <div class="nav-item" onclick="showSection('trustbar')"><i data-lucide="shield-check"></i> Trust Bar</div>
                 <div class="nav-item" onclick="showSection('usp')"><i data-lucide="star"></i> Seksi USP</div>
                 <div class="nav-item" onclick="showSection('harga')"><i data-lucide="tag"></i> Seksi Harga</div>
                 <div class="nav-item" onclick="showSection('katalog')"><i data-lucide="image"></i> Seksi Katalog</div>
@@ -431,6 +432,17 @@
                         </div>
                     </div>
                     <button class="btn" onclick="saveHeroData()">SIMPAN PERUBAHAN HERO</button>
+                </div>
+            </section>
+
+            <!-- TRUST BAR SECTION -->
+            <section id="sec-trustbar" class="content-sec hidden">
+                <div class="header">
+                    <h1>Trust Bar</h1>
+                    <button class="btn" style="width: auto; padding: 0.5rem 1.5rem" onclick="openModal('trustbar')">+ Tambah Item</button>
+                </div>
+                <div id="trustbar-list" class="grid">
+                    <!-- Trust bar items will load here -->
                 </div>
             </section>
 
@@ -653,6 +665,7 @@
                 }
             });
             
+            if (id === 'trustbar') loadTrustBar();
             if (id === 'usp') loadUSP();
             if (id === 'harga') loadHarga();
             if (id === 'katalog') loadKatalog();
@@ -734,6 +747,23 @@
         }
 
         // --- MODULE LOGICS ---
+
+        async function loadTrustBar() {
+            const { data } = await sb.from('braveline_trust_bar').select('*').order('urutan', { ascending: true });
+            const list = document.getElementById('trustbar-list');
+            list.innerHTML = data?.map(item => `
+                <div class="card">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">${item.icon}</div>
+                    <h3 style="margin-bottom: 0.5rem;">${item.highlight_text}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">${item.description_text}</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 10px;">
+                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: var(--bg-input)" onclick="editItem('trustbar', '${item.id}')">EDIT</button>
+                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: #330000" onclick="deleteItem('trustbar', '${item.id}')">HAPUS</button>
+                    </div>
+                </div>
+            `).join('') || '<p>Belum ada data.</p>';
+            lucide.createIcons();
+        }
 
         async function loadUSP() {
             const { data } = await sb.from('braveline_usp_cards').select('*').order('urutan', { ascending: true });
@@ -876,6 +906,14 @@
                     <div class="form-group"><label>Deskripsi</label><textarea name="description" rows="3"></textarea></div>
                     <div class="form-group"><label>Urutan (Angka)</label><input type="number" name="urutan" value="0"></div>
                 `;
+            } else if (type === 'trustbar') {
+                title.innerText = id ? 'Edit Trust Bar' : 'Tambah Trust Bar';
+                html = `
+                    <div class="form-group"><label>Icon (Emoji)</label><input type="text" name="icon" required></div>
+                    <div class="form-group"><label>Highlight Text</label><input type="text" name="highlight_text" required placeholder="PROSES CEPAT"></div>
+                    <div class="form-group"><label>Description</label><input type="text" name="description_text" required placeholder="— Tepat Waktu, Terjamin"></div>
+                    <div class="form-group"><label>Urutan (Angka)</label><input type="number" name="urutan" value="0"></div>
+                `;
             } else if (type === 'harga') {
                 title.innerText = id ? 'Edit Paket' : 'Tambah Paket';
                 html = `
@@ -945,6 +983,7 @@
 
         async function fillModalData(type, id) {
             const tableMap = { 
+                'trustbar': 'braveline_trust_bar',
                 'usp': 'braveline_usp_cards', 
                 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog',
@@ -971,6 +1010,7 @@
             const type = e.target.getAttribute('data-type');
             const id = document.getElementById('modal-id').value;
             const tableMap = { 
+                'trustbar': 'braveline_trust_bar',
                 'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
                 'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
@@ -1000,6 +1040,7 @@
                 if (!res.error) {
                     showToast("Selesai!");
                     closeModal();
+                    if (type === 'trustbar') loadTrustBar();
                     if (type === 'usp') loadUSP();
                     if (type === 'harga') loadHarga();
                     if (type === 'katalog') loadKatalog();
@@ -1015,6 +1056,7 @@
         async function deleteItem(type, id) {
             if (!confirm("Hapus data ini?")) return;
             const tableMap = { 
+                'trustbar': 'braveline_trust_bar',
                 'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
                 'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
                 'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
@@ -1023,6 +1065,7 @@
             const { error } = await sb.from(tableMap[type]).delete().eq('id', id);
             if (!error) {
                 showToast("Berhasil Dihapus");
+                if (type === 'trustbar') loadTrustBar();
                 if (type === 'usp') loadUSP();
                 if (type === 'harga') loadHarga();
                 if (type === 'katalog') loadKatalog();
