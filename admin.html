@@ -441,6 +441,17 @@
                     <h1>Trust Bar</h1>
                     <button class="btn" style="width: auto; padding: 0.5rem 1.5rem" onclick="openModal('trustbar')">+ Tambah Item</button>
                 </div>
+                
+                <div class="card" style="margin-bottom: 2rem; border-left: 4px solid var(--secondary);">
+                    <div style="display: flex; gap: 1rem; align-items: flex-end;">
+                        <div class="form-group" style="flex: 1; margin: 0;">
+                            <label>Kecepatan Animasi Marquee (Detik)</label>
+                            <input type="number" id="trustbar-speed" placeholder="Contoh: 20" min="1" max="100">
+                        </div>
+                        <button class="btn" style="width: auto; padding: 0.8rem 2rem;" onclick="saveTrustBarSpeed()">SIMPAN KECEPATAN</button>
+                    </div>
+                </div>
+
                 <div id="trustbar-list" class="grid">
                     <!-- Trust bar items will load here -->
                 </div>
@@ -748,7 +759,31 @@
 
         // --- MODULE LOGICS ---
 
+        async function loadTrustBarSpeed() {
+            try {
+                const { data } = await sb.from('braveline_site_settings').select('value').eq('key', 'trust_bar_speed').single();
+                if (data && data.value) {
+                    document.getElementById('trustbar-speed').value = data.value;
+                }
+            } catch (e) { console.error('Error load speed', e); }
+        }
+
+        async function saveTrustBarSpeed() {
+            const speed = document.getElementById('trustbar-speed').value;
+            if (!speed) return alert('Masukkan kecepatan!');
+            
+            const btn = document.querySelector('button[onclick="saveTrustBarSpeed()"]');
+            btn.textContent = "Menyimpan...";
+            
+            const { error } = await sb.from('braveline_site_settings').upsert({ key: 'trust_bar_speed', value: speed });
+            
+            btn.textContent = "SIMPAN KECEPATAN";
+            if (error) alert('Gagal menyimpan kecepatan: ' + error.message);
+            else alert('Kecepatan berhasil disimpan');
+        }
+
         async function loadTrustBar() {
+            loadTrustBarSpeed();
             const { data } = await sb.from('braveline_trust_bar').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('trustbar-list');
             list.innerHTML = data?.map(item => `

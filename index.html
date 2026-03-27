@@ -902,6 +902,12 @@ Chat WhatsApp Sekarang — GRATIS
     try {
       if(!supabaseClient) return;
       
+      const { data: speedData } = await supabaseClient
+        .from('braveline_site_settings')
+        .select('value')
+        .eq('key', 'trust_bar_speed')
+        .single();
+
       const { data, error } = await supabaseClient
         .from('braveline_trust_bar')
         .select('*')
@@ -910,6 +916,11 @@ Chat WhatsApp Sekarang — GRATIS
       if(error) throw error;
       
       const container = document.getElementById('trustbar-container');
+
+      if(container && speedData && speedData.value) {
+          container.style.animationDuration = speedData.value + 's';
+      }
+
       if(container && data && data.length > 0) {
         let htmlStr = '';
         data.forEach(item => {
