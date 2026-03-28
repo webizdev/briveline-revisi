@@ -574,7 +574,16 @@
                         <h3>Informasi Situs</h3>
                         <div class="form-group"><label>Site Title</label><input type="text" id="site_title" data-key="site_title"></div>
                         <div class="form-group"><label>WhatsApp Number (tanpa +)</label><input type="text" id="wa_number" data-key="wa_number" placeholder="628123..."></div>
-                        <button class="btn" onclick="saveGlobalSettings()">SIMPAN SETTINGS</button>
+                        <div class="form-group"><label>Tema Warna Website</label>
+                            <select id="site_theme_color" data-key="site_theme_color" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-main); font-family: inherit;">
+                                <option value="merah">Merah (Default)</option>
+                                <option value="biru">Biru Ocean</option>
+                                <option value="hijau">Hijau Forest</option>
+                                <option value="ungu">Ungu Night</option>
+                                <option value="gold">Gold Luxury</option>
+                            </select>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem" onclick="saveGlobalSettings()">SIMPAN SETTINGS</button>
                     </div>
                     <div class="card">
                         <h3>Keamanan Dashboard</h3>

@@ -1011,11 +1011,42 @@ Chat WhatsApp Sekarang — GRATIS
     try {
       if(!supabaseClient) return;
       
-      const { data: speedData } = await supabaseClient
+      const { data: settingsData, error: settingsError } = await supabaseClient
         .from('braveline_site_settings')
-        .select('value')
-        .eq('key', 'trust_bar_speed')
-        .single();
+        .select('key, value')
+        .in('key', ['trust_bar_speed', 'site_theme_color']);
+        
+      if (!settingsError && settingsData) {
+          settingsData.forEach(item => {
+              if (item.key === 'trust_bar_speed') {
+                  const container = document.getElementById('trustbar-container');
+                  if (container && item.value) {
+                      container.style.animationDuration = item.value + 's';
+                  }
+              }
+              if (item.key === 'site_theme_color' && item.value) {
+                  const root = document.documentElement;
+                  if (item.value === 'biru') {
+                      root.style.setProperty('--merah', '#007BFF');
+                      root.style.setProperty('--merah-gelap', '#0056b3');
+                      root.style.setProperty('--kuning', '#00FFFF');
+                  } else if (item.value === 'hijau') {
+                      root.style.setProperty('--merah', '#00E676');
+                      root.style.setProperty('--merah-gelap', '#00C853');
+                      root.style.setProperty('--kuning', '#B2FF59');
+                  } else if (item.value === 'ungu') {
+                      root.style.setProperty('--merah', '#B388FF');
+                      root.style.setProperty('--merah-gelap', '#7C4DFF');
+                      root.style.setProperty('--kuning', '#FF4081');
+                  } else if (item.value === 'gold') {
+                      root.style.setProperty('--merah', '#FFD700');
+                      root.style.setProperty('--merah-gelap', '#D4AF37');
+                      root.style.setProperty('--kuning', '#FFFFFF');
+                  }
+                  // merah is default, handled by CSS
+              }
+          });
+      }
 
       const { data, error } = await supabaseClient
         .from('braveline_trust_bar')
@@ -1025,11 +1056,6 @@ Chat WhatsApp Sekarang — GRATIS
       if(error) throw error;
       
       const container = document.getElementById('trustbar-container');
-
-      if(container && speedData && speedData.value) {
-          container.style.animationDuration = speedData.value + 's';
-      }
-
       if(container && data && data.length > 0) {
         let htmlStr = '';
         data.forEach(item => {
