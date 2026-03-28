@@ -1018,7 +1018,7 @@ Chat WhatsApp Sekarang — GRATIS
       const { data: settingsData, error: settingsError } = await supabaseClient
         .from('braveline_site_settings')
         .select('key, value')
-        .in('key', ['trust_bar_speed', 'site_theme_color']);
+        .in('key', ['trust_bar_speed', 'site_theme_color', 'meta_pixel_code']);
         
       if (!settingsError && settingsData) {
           settingsData.forEach(item => {
@@ -1048,6 +1048,12 @@ Chat WhatsApp Sekarang — GRATIS
                       root.style.setProperty('--kuning', '#FFFFFF');
                   }
                   // merah is default, handled by CSS
+              }
+              if (item.key === 'meta_pixel_code' && item.value) {
+                  try {
+                      const pixelFrag = document.createRange().createContextualFragment(item.value);
+                      document.head.insertBefore(pixelFrag, document.head.firstChild);
+                  } catch(e) { console.error('Meta Pixel Load Error:', e); }
               }
           });
       }
