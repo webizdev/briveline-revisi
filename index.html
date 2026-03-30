@@ -1157,26 +1157,27 @@ Chat WhatsApp Sekarang — GRATIS
               // Duplicate items to create a seamless infinite scroll loop
               track.innerHTML = itemsHtml + itemsHtml;
 
-              // Setup Infinite Scroll Animation
+              // Setup Smooth Infinite Scroll Animation using CSS (GPU Accelerated)
               const totalWidth = carouselData.length * (280 + 16);
-              let pos = 0;
-              let speed = 0.6;
-              let paused = false;
+              const durationSecs = totalWidth / 35; // adjusting speed base, higher divider = faster
               
-              track.addEventListener('mouseenter', () => paused = true);
-              track.addEventListener('mouseleave', () => paused = false);
-              track.addEventListener('touchstart', () => paused = true, {passive: true});
-              track.addEventListener('touchend', () => paused = false, {passive: true});
-              
-              function animateCarousel() {
-                  if(!paused){
-                      pos += speed;
-                      if(pos >= totalWidth) pos = 0;
-                      track.style.transform = 'translateX(-' + pos + 'px)';
-                  }
-                  requestAnimationFrame(animateCarousel);
-              }
-              animateCarousel();
+              const style = document.createElement('style');
+              style.innerHTML = `
+                @keyframes smoothScrollAnim {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-${totalWidth}px); }
+                }
+                .carousel-track-animated {
+                  animation: smoothScrollAnim ${durationSecs}s linear infinite;
+                  will-change: transform;
+                }
+                .carousel-track-animated:hover,
+                .carousel-track-animated:active {
+                  animation-play-state: paused;
+                }
+              `;
+              document.head.appendChild(style);
+              track.classList.add('carousel-track-animated');
           }
       }
 
