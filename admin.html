@@ -110,6 +110,8 @@
             display: flex;
             flex-direction: column;
             padding: 1.5rem;
+            overflow: hidden; /* Ensure nav handles the scroll */
+            height: 100vh;
         }
 
         .brand {
@@ -123,7 +125,12 @@
 
         .brand span { font-size: 1.8rem; font-weight: 900; color: var(--primary); }
 
-        nav { flex: 1; overflow-y: auto; padding-right: 5px; }
+        nav { 
+            flex: 1; 
+            overflow-y: auto; 
+            padding-right: 5px; 
+            min-height: 0; /* Critical flexbox scroll fix */
+        }
         nav::-webkit-scrollbar { width: 4px; }
         nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
@@ -222,6 +229,37 @@
         }
         #toast.show { transform: translateY(0); }
 
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            :root {
+                --sidebar-width: 70px;
+            }
+            aside {
+                padding: 1.5rem 0; /* Remove horizontal padding to save space */
+                align-items: stretch; /* Keep children full width */
+            }
+            .brand {
+                justify-content: center;
+                padding-bottom: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            .brand span { display: none; }
+            .nav-item {
+                padding: 1.2rem 0.5rem;
+                justify-content: center;
+                gap: 0;
+            }
+            .nav-item span { display: none; }
+            .nav-item i { width: 24px; height: 24px; }
+            /* Main content padding adj */
+            main {
+                padding: 1rem;
+            }
+            .header h1 { font-size: 1.6rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
+        }
+
     </style>
 </head>
 <body>
@@ -247,22 +285,23 @@
                 <span class="brand-text">BRAVELINE</span>
             </div>
             <nav id="sidebar-nav">
-                <div class="nav-item active" onclick="showSection('dashboard')"><i data-lucide="home"></i> Dashboard</div>
-                <div class="nav-item" onclick="showSection('panduan')"><i data-lucide="book-open"></i> Panduan Penggunaan</div>
-                <div class="nav-item" onclick="showSection('hero')"><i data-lucide="layout-template"></i> Seksi Hero</div>
-                <div class="nav-item" onclick="showSection('trustbar')"><i data-lucide="shield-check"></i> Trust Bar</div>
-                <div class="nav-item" onclick="showSection('usp')"><i data-lucide="star"></i> Seksi USP</div>
-                <div class="nav-item" onclick="showSection('harga')"><i data-lucide="tag"></i> Seksi Harga</div>
-                <div class="nav-item" onclick="showSection('katalog')"><i data-lucide="image"></i> Seksi Katalog</div>
-                <div class="nav-item" onclick="showSection('kategori')"><i data-lucide="filter"></i> Kategori Katalog</div>
-                <div class="nav-item" onclick="showSection('carousel')"><i data-lucide="repeat"></i> Carousel Foto</div>
-                <div class="nav-item" onclick="showSection('testimonial')"><i data-lucide="message-square"></i> Testimonial</div>
-                <div class="nav-item" onclick="showSection('proses')"><i data-lucide="rocket"></i> Cara Order</div>
-                <div class="nav-item" onclick="showSection('faq')"><i data-lucide="help-circle"></i> Seksi FAQ</div>
-                <div class="nav-item" onclick="showSection('footer')"><i data-lucide="map-pin"></i> Footer & Info</div>
+                <div class="nav-item active" onclick="showSection('dashboard')"><i data-lucide="home"></i> <span>Dashboard</span></div>
+                <div class="nav-item" onclick="showSection('panduan')"><i data-lucide="book-open"></i> <span>Panduan Penggunaan</span></div>
+                <div class="nav-item" onclick="showSection('hero')"><i data-lucide="layout-template"></i> <span>Seksi Hero</span></div>
+                <div class="nav-item" onclick="showSection('trustbar')"><i data-lucide="shield-check"></i> <span>Trust Bar</span></div>
+                <div class="nav-item" onclick="showSection('usp')"><i data-lucide="star"></i> <span>Seksi USP</span></div>
+                <div class="nav-item" onclick="showSection('harga')"><i data-lucide="tag"></i> <span>Seksi Harga</span></div>
+                <div class="nav-item" onclick="showSection('katalog')"><i data-lucide="image"></i> <span>Seksi Katalog</span></div>
+                <div class="nav-item" onclick="showSection('kategori')"><i data-lucide="filter"></i> <span>Kategori Katalog</span></div>
+                <div class="nav-item" onclick="showSection('carousel')"><i data-lucide="repeat"></i> <span>Carousel Foto</span></div>
+                <div class="nav-item" onclick="showSection('testimonial')"><i data-lucide="message-square"></i> <span>Testimonial</span></div>
+                <div class="nav-item" onclick="showSection('proses')"><i data-lucide="rocket"></i> <span>Cara Order</span></div>
+                <div class="nav-item" onclick="showSection('regional')"><i data-lucide="map-pin-plus"></i> <span>Regional</span></div>
+                <div class="nav-item" onclick="showSection('faq')"><i data-lucide="help-circle"></i> <span>Seksi FAQ</span></div>
+                <div class="nav-item" onclick="showSection('footer')"><i data-lucide="map-pin"></i> <span>Footer & Info</span></div>
                 <div style="flex:1"></div>
-                <div class="nav-item" onclick="showSection('settings')"><i data-lucide="settings"></i> Pengaturan Global</div>
-                <div class="nav-item" onclick="logout()" style="color: var(--primary)"><i data-lucide="log-out"></i> Logout</div>
+                <div class="nav-item" onclick="showSection('settings')"><i data-lucide="settings"></i> <span>Pengaturan Global</span></div>
+                <div class="nav-item" onclick="logout()" style="color: var(--primary)"><i data-lucide="log-out"></i> <span>Logout</span></div>
             </nav>
         </aside>
 
@@ -544,6 +583,74 @@
                 </div>
             </section>
 
+            <!-- REGIONAL SECTION -->
+            <section id="sec-regional" class="content-sec hidden">
+                <div class="header"><h1>Seksi Regional (Bandung & Kalimantan)</h1></div>
+                <div class="card" style="border-left: 4px solid #25D366; margin-bottom: 1.5rem;">
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">💡 Atur teks untuk section "Kabar Gembira" yang menampilkan kehadiran Braveline di Bandung dan Kalimantan, beserta tombol WhatsApp masing-masing.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Teks Utama Section</h3>
+                    <div class="form-group">
+                        <label>Badge Text (Label Kecil Atas)</label>
+                        <input type="text" id="regional_badge" data-key="regional_badge" placeholder="🎉 Kabar Gembira">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Baris 1</label>
+                        <input type="text" id="regional_title1" data-key="regional_title1" placeholder="Kabar Gembira Buat Kamu">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Baris 2</label>
+                        <input type="text" id="regional_title2" data-key="regional_title2" placeholder="di Bandung dan Kalimantan!">
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi Lengkap</label>
+                        <textarea id="regional_desc" data-key="regional_desc" rows="3" placeholder="Saat ini Braveline sudah hadir lebih dekat untukmu! Kamu bisa langsung hubungi admin terdekat..."></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Tombol WhatsApp — Bandung</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Label Tombol Bandung</label>
+                            <input type="text" id="regional_bdg_label" data-key="regional_bdg_label" placeholder="Braveline Bandung">
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor WA Bandung (Tampilan)</label>
+                            <input type="text" id="regional_bdg_phone" data-key="regional_bdg_phone" placeholder="0851-9922-7070">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor WA Bandung (Format Internasional, tanpa +)</label>
+                        <input type="text" id="regional_bdg_wa" data-key="regional_bdg_wa" placeholder="6285199227070">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Tombol WhatsApp — Kalimantan</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Label Tombol Kalimantan</label>
+                            <input type="text" id="regional_kal_label" data-key="regional_kal_label" placeholder="Braveline Kalimantan">
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor WA Kalimantan (Tampilan)</label>
+                            <input type="text" id="regional_kal_phone" data-key="regional_kal_phone" placeholder="0857-8796-1197">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor WA Kalimantan (Format Internasional, tanpa +)</label>
+                        <input type="text" id="regional_kal_wa" data-key="regional_kal_wa" placeholder="6285787961197">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="form-group">
+                        <label>Catatan Bawah (kecil, di bawah tombol)</label>
+                        <input type="text" id="regional_footnote" data-key="regional_footnote" placeholder="📍 Melayani seluruh Indonesia — pengiriman ke semua kota">
+                    </div>
+                    <button class="btn" onclick="saveRegionalData()">SIMPAN PERUBAHAN REGIONAL</button>
+                </div>
+            </section>
+
             <!-- FOOTER & INFO SECTION -->
             <section id="sec-footer" class="content-sec hidden">
                 <div class="header"><h1>Footer & Info Kontak</h1></div>
@@ -708,6 +815,7 @@
             if (id === 'testimonial') loadTestimonial();
             if (id === 'faq') loadFAQ();
             if (id === 'proses') loadProses();
+            if (id === 'regional') loadRegionalData();
         }
 
         // DATA LOADING
@@ -1188,6 +1296,25 @@
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
             const { error } = await sb.from('braveline_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Footer Info Updated!");
+            else alert("Error: " + error.message);
+        }
+
+        async function loadRegionalData() {
+            const keys = ['regional_badge','regional_title1','regional_title2','regional_desc','regional_bdg_label','regional_bdg_phone','regional_bdg_wa','regional_kal_label','regional_kal_phone','regional_kal_wa','regional_footnote'];
+            const { data } = await sb.from('braveline_site_settings').select('key, value').in('key', keys);
+            if (data) {
+                data.forEach(item => {
+                    const el = document.getElementById(item.key);
+                    if (el) el.value = item.value || '';
+                });
+            }
+        }
+
+        async function saveRegionalData() {
+            const inputs = document.querySelectorAll('#sec-regional [data-key]');
+            const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
+            const { error } = await sb.from('braveline_site_settings').upsert(updates, { onConflict: 'key' });
+            if (!error) showToast("Regional Section Updated!");
             else alert("Error: " + error.message);
         }
 
