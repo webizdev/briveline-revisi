@@ -842,7 +842,8 @@
     .katalog-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .kf-btn { font-size: 11px; padding: 7px 12px; }
   }
-</style><section class="hero">
+</style>
+<section class="hero">
 <div class="container" style="width: 100%; padding: 0 20px;">
 <div class="hero-content">
   <div class="hero-badge" id="dyn_hero_badge">🏆 #1 Pabrik Jersey Terpercaya</div><h1 class="hero-title">
@@ -1284,6 +1285,23 @@ Chat WhatsApp Sekarang — GRATIS
                 root.style.setProperty('--merah-gelap', c.md);
                 root.style.setProperty('--kuning', c.k);
             }
+          }
+          if (item.key === 'meta_pixel_id' && item.value) {
+            try {
+              const pixelId = item.value.trim();
+              if (pixelId) {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', pixelId);
+                fbq('track', 'PageView');
+              }
+            } catch(e) {}
           }
           if (item.key === 'meta_pixel_code' && item.value) {
             try {
