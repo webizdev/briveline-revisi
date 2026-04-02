@@ -1332,13 +1332,13 @@ Chat WhatsApp Sekarang — GRATIS
       const carouselTrack = document.getElementById('carousel-track');
       if (carouselTrack && !carouselError && carouselData && carouselData.length > 0) {
         const html = carouselData.map(item => `
-          <div style="flex-shrink:0;width:280px;height:280px;border-radius:12px;overflow:hidden;background:#1a1a1a;">
+          <div style="flex-shrink:0;width:320px;height:320px;border-radius:12px;overflow:hidden;background:#1a1a1a;">
             <img decoding="async" src="${item.image_url}" alt="Jersey Pelanggan" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
         `).join('');
         carouselTrack.innerHTML = html + html;
-        const totalWidth = carouselData.length * (280 + 16);
-        const duration = totalWidth / 35;
+        const totalWidth = carouselData.length * (320 + 20);
+        const duration = totalWidth / 70;
         const style = document.createElement('style');
         style.innerHTML = `
           @keyframes smoothScrollAnim { 
@@ -1348,6 +1348,9 @@ Chat WhatsApp Sekarang — GRATIS
           .carousel-track-animated { 
             animation: smoothScrollAnim ${duration}s linear infinite; 
             will-change: transform; 
+            display: flex;
+            gap: 20px;
+            width: max-content;
           } 
           .carousel-track-animated:hover { animation-play-state: paused; }
         `;
