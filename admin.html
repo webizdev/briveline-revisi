@@ -298,6 +298,7 @@
                 <div class="nav-item" onclick="showSection('proses')"><i data-lucide="rocket"></i> <span>Cara Order</span></div>
                 <div class="nav-item" onclick="showSection('regional')"><i data-lucide="map-pin-plus"></i> <span>Regional</span></div>
                 <div class="nav-item" onclick="showSection('faq')"><i data-lucide="help-circle"></i> <span>Seksi FAQ</span></div>
+                <div class="nav-item" onclick="showSection('titles')"><i data-lucide="type"></i> <span>Judul & Sub Seksi</span></div>
                 <div class="nav-item" onclick="showSection('countdown')"><i data-lucide="timer"></i> <span>Countdown Promo</span></div>
                 <div class="nav-item" onclick="showSection('footer')"><i data-lucide="map-pin"></i> <span>Footer & Info</span></div>
                 <div style="flex:1"></div>
@@ -445,30 +446,34 @@
                         <input type="text" id="hero_badge" data-key="hero_badge">
                     </div>
                     <div class="form-group">
-                        <label>Teks Atas (Warna Putih)</label>
-                        <input type="text" id="hero_title_line1" data-key="hero_title_line1">
+                        <label>Teks Baris 1 (Paling Atas)</label>
+                        <input type="text" id="hero_title1" data-key="hero_title1">
                     </div>
                     <div class="form-group">
-                        <label>Teks Tengah (Warna Tema)</label>
-                        <input type="text" id="hero_title_line2" data-key="hero_title_line2">
+                        <label>Teks Baris 2 (Tengah - Warna Tema)</label>
+                        <input type="text" id="hero_title2" data-key="hero_title2">
                     </div>
                     <div class="form-group">
-                        <label>Teks Bawah (Warna Putih)</label>
-                        <input type="text" id="hero_title_line3" data-key="hero_title_line3">
+                        <label>Teks Baris 3 (Bawah)</label>
+                        <input type="text" id="hero_title3" data-key="hero_title3">
                     </div>
                     <div class="form-group">
-                        <label>Subtitle</label>
+                        <label>Subtitle / Deskripsi Hero</label>
                         <textarea id="hero_subtitle" rows="3" data-key="hero_subtitle"></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Promo Text</label>
+                            <label>Promo Text (Kecil di atas tombol)</label>
                             <input type="text" id="hero_promo_text" data-key="hero_promo_text">
                         </div>
                         <div class="form-group">
-                            <label>CTA Button Text</label>
-                            <input type="text" id="hero_cta_button" data-key="hero_cta_button">
+                            <label>Label Tombol WA</label>
+                            <input type="text" id="hero_action_wa" data-key="hero_action_wa">
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Label Tombol Katalog</label>
+                        <input type="text" id="hero_action_catalog" data-key="hero_action_catalog">
                     </div>
                     <button class="btn" onclick="saveHeroData()">SIMPAN PERUBAHAN HERO</button>
                 </div>
@@ -665,16 +670,69 @@
                 </div>
             </section>
 
+            <!-- SECTION TITLES & SUBTITLES -->
+            <section id="sec-titles" class="content-sec hidden">
+                <div class="header"><h1>Judul & Sub-Judul Seksi</h1></div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Seksi Keunggulan (USP)</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_usp_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_usp_sub" rows="2"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>Seksi Paket Harga</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_harga_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_harga_sub" rows="2"></textarea></div>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border)">
+                            <label style="color: var(--secondary)">Promo Harga (Kecil di bawah judul)</label>
+                            <div class="form-group"><label>Judul Promo</label><input type="text" data-key="harga_promo_title"></div>
+                            <div class="form-group"><label>Deskripsi Promo</label><input type="text" data-key="harga_promo_desc"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Seksi Cara Order</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_proses_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_proses_sub" rows="2"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>Seksi Testimonial</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_testi_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_testi_sub" rows="2"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>Carousel Foto Slider</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_carousel_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_carousel_sub" rows="2"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>Seksi FAQ</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="section_faq_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="section_faq_sub" rows="2"></textarea></div>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--primary)">
+                        <h3>Seksi CTA Akhir (Bawah)</h3>
+                        <div class="form-group"><label>Judul Utama</label><input type="text" data-key="cta_final_title"></div>
+                        <div class="form-group"><label>Sub-Judul</label><textarea data-key="cta_final_sub" rows="2"></textarea></div>
+                        <div class="form-group"><label>Label Tombol CTA</label><input type="text" data-key="cta_final_btn"></div>
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 1rem" onclick="saveSectionTitles()">SIMPAN SEMUA JUDUL SEKSI</button>
+            </section>
+
             <!-- FOOTER & INFO SECTION -->
             <section id="sec-footer" class="content-sec hidden">
                 <div class="header"><h1>Footer & Info Kontak</h1></div>
                 <div class="card">
-                    <div class="form-group"><label>Tagline Footer</label><input type="text" id="footer_tagline" data-key="footer_tagline"></div>
-                    <div class="form-group"><label>Deskripsi Singkat</label><textarea id="footer_description" data-key="footer_description"></textarea></div>
-                    <div class="form-group"><label>Alamat Lengkap</label><textarea id="footer_address" data-key="footer_address"></textarea></div>
+                    <div class="form-group"><label>Tagline Footer (Di bawah logo)</label><input type="text" id="footer_tagline" data-key="footer_tagline"></div>
+                    <div class="form-group"><label>Deskripsi Singkat Footer</label><textarea id="footer_description" data-key="footer_description" rows="3"></textarea></div>
+                    <div class="form-group"><label>Alamat Lengkap (Tampil di footer)</label><textarea id="footer_address" data-key="footer_address" rows="3"></textarea></div>
                     <div class="form-row">
-                        <div class="form-group"><label>Nomor WhatsApp / HP</label><input type="text" id="footer_phone" data-key="footer_phone"></div>
-                        <div class="form-group"><label>Jam Operasional</label><input type="text" id="footer_jam" data-key="footer_jam"></div>
+                        <div class="form-group"><label>Nomor WhatsApp (Tampilan)</label><input type="text" id="footer_phone" data-key="footer_phone" placeholder="0812-3456-7890"></div>
+                        <div class="form-group"><label>Jam Operasional</label><input type="text" id="footer_jam" data-key="footer_jam" placeholder="Senin - Sabtu: 09:00 - 18:00"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Teks Jam Operasional Footer (Detail)</label>
+                        <input type="text" id="footer_operational_hours" data-key="footer_operational_hours" placeholder="Produksi & Admin: Senin - Sabtu (08.00 - 17.00)">
                     </div>
                     <div class="form-row">
                         <div class="form-group"><label>Instagram URL</label><input type="text" id="footer_ig" data-key="footer_ig"></div>
@@ -831,6 +889,7 @@
             if (id === 'proses') loadProses();
             if (id === 'countdown') loadCountdown();
             if (id === 'regional') loadRegionalData();
+            if (id === 'titles') loadInitialData(); // Just refresh data from Supabase
         }
 
         // DATA LOADING
@@ -1321,6 +1380,14 @@
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
             const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Footer Info Updated!");
+            else alert("Error: " + error.message);
+        }
+
+        async function saveSectionTitles() {
+            const inputs = document.querySelectorAll('#sec-titles [data-key]');
+            const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
+            const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
+            if (!error) showToast("Judul Seksi Berhasil Disimpan!");
             else alert("Error: " + error.message);
         }
 
