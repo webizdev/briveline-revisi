@@ -39,8 +39,8 @@
 				}</style><link rel="icon" id="dyn_favicon" href="images/logo.jpg" sizes="32x32"><link rel="icon" id="dyn_favicon_large" href="images/logo.jpg" sizes="192x192"><link rel="apple-touch-icon" id="dyn_apple_icon" href="images/logo.jpg"><meta name="msapplication-TileImage" id="dyn_ms_tile" content="images/logo.jpg"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head><body class="home wp-singular page-template page-template-elementor_canvas page page-id-1693 wp-embed-responsive wp-theme-twentytwentyone is-light-theme singular elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-1693 e--ua-blink e--ua-chrome e--ua-webkit" data-elementor-device-mode="desktop"><div data-elementor-type="wp-page" data-elementor-id="1693" class="elementor elementor-1693" data-elementor-post-type="page"><div class="elementor-element elementor-element-3fb22ad e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="3fb22ad" data-element_type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-88f0901 elementor-widget elementor-widget-html" data-id="88f0901" data-element_type="widget" data-widget_type="html.default"><div class="elementor-widget-container">
  <script src="data:text/javascript;base64,IWZ1bmN0aW9uKHcsZCx0LHUsayxhLG0pe3cuS29uZWt0b3JPYmplY3Q9azt3W2tdPXdba118fGZ1bmN0aW9uKCl7KHdba10ucT13W2tdLnF8fFtdKS5wdXNoKGFyZ3VtZW50cyl9LHdba10ubD0xKm5ldyBEYXRlKCk7YT1kLmNyZWF0ZUVsZW1lbnQodCksbT1kLmdldEVsZW1lbnRzQnlUYWdOYW1lKHQpWzBdO2EuYXN5bmM9MTthLnNyYz11O20ucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoYSxtKX0od2luZG93LGRvY3VtZW50LCdzY3JpcHQnLCdodHRwczovL2Nkbi5rb25la3Rvci5pZC90cmFja2VyLm1pbi5qcycsJ2tvbmVrdG9yJyk7a29uZWt0b3IoJ2luaXQnLCdXUy1XUUxVOEgnKTtrb25la3RvcigndHJhY2snLCdQYWdlVmlldycp" defer></script> </div></div></div></div><div class="elementor-element elementor-element-1cb7322 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="1cb7322" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-1b622f0 elementor-widget elementor-widget-html" data-id="1b622f0" data-element_type="widget" data-widget_type="html.default"><div class="elementor-widget-container">
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Braveline – Pabrik Jersey Custom Full Printing</title><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet"><style>:root {
-    --merah: #E8001D;
-    --merah-gelap: #B8001A;
+    --biru: #007BFF;
+    --biru-gelap: #0056b3;
     --hitam: #0D0D0D;
     --abu: #1A1A1A;
     --abu-muda: #F5F5F5;
@@ -63,42 +63,33 @@
   }
 
   .hero {
-    background: linear-gradient(135deg, #0D0D0D 0%, #1a0000 50%, #0D0D0D 100%);
-    padding: 0;
+    background: url('images/hero.png') center/cover no-repeat;
+    padding: clamp(80px, 15vh, 160px) clamp(20px, 5vw, 60px) clamp(60px, 12vh, 120px);
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
   }
 
   .hero::before {
     content: '';
     position: absolute;
-    top: -200px; left: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(232,0,29,0.25) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(1,6,17,0.95) 0%, rgba(1,6,17,0.5) 50%, rgba(1,6,17,0.1) 100%);
+    z-index: 1;
   }
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -200px; right: -200px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(232,0,29,0.15) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite 2s;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.2); opacity: 1; }
+  .hero-content {
+    flex: 1;
+    max-width: 800px;
+    position: relative;
+    z-index: 5;
+    text-align: left;
   }
 
   .hero-badge {
-    background: var(--merah);
+    background: var(--biru);
     color: var(--putih);
     font-size: 13px;
     font-weight: 800;
@@ -109,6 +100,7 @@
     margin-bottom: 24px;
     position: relative;
     z-index: 2;
+    display: inline-block;
     animation: fadeDown 0.8s ease both;
   }
 
@@ -123,26 +115,26 @@
 
   .hero-title {
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: clamp(52px, 10vw, 110px);
-    line-height: 0.9;
-    text-align: center;
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 0.95;
+    text-align: left;
     position: relative;
     z-index: 2;
     animation: fadeDown 0.8s ease 0.2s both;
   }
 
   .hero-title span.hl-color {
-    color: var(--merah);
+    color: var(--biru);
     display: block;
   }
 
   .hero-subtitle {
     font-size: clamp(16px, 2.5vw, 20px);
     color: rgba(255,255,255,0.75);
-    text-align: center;
+    text-align: left;
     max-width: 600px;
     line-height: 1.6;
-    margin: 20px auto;
+    margin: 20px 0;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.4s both;
@@ -153,12 +145,12 @@
   .hero-stats {
     display: flex;
     gap: 40px;
-    margin: 32px 0;
+    margin: 48px 0 0 0;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.5s both;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .stat-item { text-align: center; }
@@ -181,91 +173,141 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    background: #007BFF;
     color: var(--putih);
     font-size: 18px;
     font-weight: 900;
-    padding: 18px 40px;
-    border-radius: 60px;
+    padding: 18px 50px 18px 40px;
+    border-radius: 60px 0 0 60px;
     text-decoration: none;
-    box-shadow: 0 8px 40px rgba(37,211,102,0.4);
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
+    clip-path: polygon(0% 0%, calc(100% - 24px) 0%, 100% 50%, calc(100% - 24px) 100%, 0% 100%);
+    filter: drop-shadow(0 8px 15px rgba(0,123,255,0.4));
     animation: fadeUp 0.8s ease 0.6s both;
   }
 
   .btn-wa:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 16px 60px rgba(37,211,102,0.6);
+    transform: translateY(-3px) scale(1.02);
+    filter: drop-shadow(0 12px 25px rgba(0,123,255,0.6));
   }
 
-  .btn-wa svg { width: 26px; height: 26px; fill: white; flex-shrink: 0; }
+  .btn-wa svg, .btn-cta-wa svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
 
-  .btn-wa-pulse {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 60px;
-    background: rgba(37,211,102,0.4);
-    animation: btnPulse 2s ease-in-out infinite;
+  /* Removed btn-wa-pulse for clean arrow shape */
+
+  /* BUTTON KATALOG ARROW */
+  .btn-catalog {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,123,255,0.15); /* Translucent blue */
+    color: var(--putih);
+    font-size: 18px;
+    font-weight: 900;
+    padding: 18px 40px 18px 50px;
+    border-radius: 0 60px 60px 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    clip-path: polygon(24px 0%, 100% 0%, 100% 100%, 24px 100%, 0% 50%);
+    animation: fadeUp 0.8s ease 0.6s both;
   }
 
-  @keyframes btnPulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.08); opacity: 0; }
+  .btn-catalog:hover {
+    background: rgba(0,123,255,0.3);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: -8px; /* Intentionally negative gap to mesh them */
+    margin-bottom: 40px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 2;
+  }
+  
+  @media (max-width: 600px) {
+    .btn-wa, .btn-catalog {
+        font-size: 16px;
+        padding: 14px 40px 14px 28px;
+    }
+    .btn-catalog {
+        padding: 14px 28px 14px 40px;
+    }
   }
 
   .countdown-section {
-    background: var(--merah);
-    padding: 20px 20px 32px;
+    background: var(--biru);
+    padding: 32px 20px;
     text-align: center;
   }
 
   .countdown-label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    opacity: 0.9;
+    margin-bottom: 16px;
   }
 
   .countdown-boxes {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
   }
 
   .cd-box {
-    background: rgba(0,0,0,0.25);
+    background: var(--biru-gelap);
     border-radius: 8px;
-    padding: 8px 14px;
-    min-width: 64px;
+    padding: 8px 12px;
+    min-width: 60px;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
   .cd-num {
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
     font-size: 36px;
     line-height: 1;
-    color: var(--kuning);
+    color: #00FFFF;
   }
 
   .cd-label {
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    opacity: 0.85;
+    color: var(--putih);
+    margin-top: 4px;
   }
 
   .cd-sep {
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    font-size: 32px;
-    color: rgba(255,255,255,0.5);
-    padding-bottom: 14px;
+    font-size: 28px;
+    color: rgba(255,255,255,0.6);
+    padding-bottom: 12px;
   }
+
+  .countdown-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--putih);
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+    margin-top: 24px;
+    transition: all 0.3s ease;
+  }
+  .countdown-cta:hover { transform: scale(1.05); }
+  .countdown-cta svg { width: 24px; height: 24px; fill: currentColor; }
 
   .section { padding: 80px 20px; }
 
@@ -276,7 +318,7 @@
     margin-bottom: 8px;
   }
 
-  .section-title span { color: var(--merah); }
+  .section-title span { color: var(--biru); }
 
   .section-sub {
     text-align: center;
@@ -291,15 +333,16 @@
 
   .usp-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+    justify-content: center;
   }
 
   .usp-card {
-    background: var(--hitam);
-    border: 1px solid rgba(232,0,29,0.2);
-    border-radius: 16px;
-    padding: 32px 24px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 24px 12px;
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
@@ -309,22 +352,23 @@
   .usp-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0; left: 35%; right: 35%;
     height: 3px;
-    background: var(--merah);
+    background: var(--biru);
     transform: scaleX(0);
     transition: transform 0.3s ease;
+    border-radius: 0 0 4px 4px;
   }
 
-  .usp-card:hover { transform: translateY(-6px); border-color: rgba(232,0,29,0.5); }
+  .usp-card:hover { transform: translateY(-4px); border-color: rgba(0,123,255,0.5); }
   .usp-card:hover::before { transform: scaleX(1); }
 
-  .usp-icon { font-size: 44px; margin-bottom: 16px; display: block; }
-  .usp-title { font-size: 16px; font-weight: 900; margin-bottom: 8px; color: var(--putih); }
-  .usp-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .usp-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+  .usp-title { font-size: 14px; font-weight: 900; margin-bottom: 6px; color: var(--putih); }
+  .usp-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
   .harga-section {
-    background: linear-gradient(180deg, #0D0D0D 0%, #1a0000 50%, #0D0D0D 100%);
+    background: linear-gradient(180deg, #0D0D0D 0%, #0a1f3a 100%);
     padding: 80px 20px;
   }
 
@@ -335,18 +379,39 @@
   }
 
   .harga-card {
-    background: var(--abu);
-    border-radius: 20px;
     padding: 36px 28px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.08);
     transition: all 0.3s ease;
     position: relative;
+    z-index: 1;
   }
 
-  .harga-card.featured {
-    border-color: var(--merah);
-    background: linear-gradient(135deg, #1a0000, #2a0000);
+  .harga-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--abu);
+    clip-path: polygon(50% 0, 100% 28px, 100% calc(100% - 28px), 50% 100%, 0 calc(100% - 28px), 0 28px);
+    transition: all 0.3s ease;
+  }
+
+  .harga-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -2;
+    background: rgba(255,255,255,0.08);
+    clip-path: polygon(50% 0, 100% 29px, 100% calc(100% - 29px), 50% 100%, 0 calc(100% - 29px), 0 29px);
+    transition: all 0.3s ease;
+  }
+
+  .harga-card.featured::before {
+    background: linear-gradient(135deg, #0a1f3a, #041122);
+  }
+
+  .harga-card.featured::after {
+    background: var(--biru);
   }
 
   .harga-badge {
@@ -354,7 +419,7 @@
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--merah);
+    background: var(--biru);
     color: white;
     font-size: 11px;
     font-weight: 900;
@@ -409,39 +474,69 @@
   .kategori-section { background: var(--abu); padding: 80px 20px; }
 
   .kategori-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 900px;
+    --hex-w: 110px;
+    --hex-h: 120px;
+    --hex-gap: 6px;
   }
 
   .kategori-item {
+    width: var(--hex-w);
+    height: var(--hex-h);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     background: var(--hitam);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin: calc(var(--hex-gap) / 2 - 14px) var(--hex-gap);
+    position: relative;
+  }
+
+  .kategori-item::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: rgba(255,255,255,0.06);
+    z-index: -1;
     transition: all 0.3s ease;
   }
 
   .kategori-item:hover {
-    background: var(--merah);
-    border-color: var(--merah);
-    transform: scale(1.05);
+    background: rgba(0,123,255,0.15);
+    transform: scale(1.08);
+    z-index: 2;
   }
 
-  .kategori-emoji { font-size: 28px; display: block; margin-bottom: 8px; }
-  .kategori-nama { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8); }
+  .kategori-item:hover::before {
+    background: var(--biru);
+    filter: drop-shadow(0 0 12px rgba(0,123,255,0.5));
+  }
+
+  .kategori-emoji { font-size: 22px; display: block; margin-bottom: 4px; }
+  .kategori-nama { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.9); line-height: 1.2; padding: 0 8px; }
 
   .testi-section { background: var(--hitam); padding: 80px 20px; }
 
   .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
   }
 
   .testi-card {
+    min-width: 320px;
+    max-width: 320px;
+    flex-shrink: 0;
     background: var(--abu);
     border-radius: 16px;
     padding: 28px;
@@ -463,7 +558,7 @@
     content: '"';
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
     font-size: 60px;
-    color: var(--merah);
+    color: var(--biru);
     opacity: 0.4;
     line-height: 0;
     vertical-align: -20px;
@@ -476,7 +571,7 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--merah), #ff6b35);
+    background: linear-gradient(135deg, var(--biru), #ff6b35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -503,7 +598,7 @@
   }
 
   .proses-section {
-    background: linear-gradient(135deg, #0D0D0D, #1a0000, #0D0D0D);
+    background: linear-gradient(135deg, #0D0D0D, #0a1f3a, #0D0D0D);
     padding: 80px 20px;
   }
 
@@ -517,10 +612,9 @@
   .proses-step { text-align: center; padding: 24px 20px; position: relative; }
 
   .step-num {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--merah);
+    width: 60px;
+    height: 66px;
+    background: var(--biru);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -530,7 +624,16 @@
     margin: 0 auto 16px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 0 0 8px rgba(232,0,29,0.15);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .step-num::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: rgba(0,123,255,0.15);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: -1;
   }
 
   .step-icon { font-size: 24px; margin-bottom: 12px; display: block; }
@@ -547,7 +650,7 @@
     transition: border-color 0.3s;
   }
 
-  .faq-item.open { border-color: rgba(232,0,29,0.4); }
+  .faq-item.open { border-color: rgba(0,123,255,0.4); }
 
   .faq-q {
     padding: 20px 24px;
@@ -565,7 +668,7 @@
 
   .faq-arrow {
     font-size: 20px;
-    color: var(--merah);
+    color: var(--biru);
     transition: transform 0.3s ease;
     flex-shrink: 0;
   }
@@ -586,7 +689,7 @@
   .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
 
   .final-cta {
-    background: var(--merah);
+    background: var(--biru);
     padding: 80px 20px;
     text-align: center;
     position: relative;
@@ -705,17 +808,28 @@
     color: var(--hijau);
   }
 
+  @media (max-width: 1024px) {
+    .hero { flex-direction: column; text-align: center; background-position: center; justify-content: center; padding-top: clamp(100px, 12vh, 120px); }
+    .hero-content { text-align: center; }
+    .hero-title { text-align: center; }
+    .hero-subtitle { text-align: center; margin: 20px auto; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; gap: 24px; margin: 24px 0 0; }
+  }
+
   @media (max-width: 768px) {
-    .hero-stats { gap: 24px; }
+    .hero-actions { flex-direction: column; width: 100%; gap: 12px; }
+    .hero-actions .btn-wa, .hero-actions .btn-catalog { width: 100%; justify-content: center; padding: 16px; font-size: 16px; }
+    .hero-stats { gap: 16px; }
     .stat-number { font-size: 32px; }
-    .btn-wa { font-size: 16px; padding: 16px 28px; }
     .cd-num { font-size: 28px; }
     .cd-box { min-width: 52px; padding: 6px 10px; }
+    .countdown-cta { font-size: 16px; margin-top: 20px; }
   }
 
   @media (max-width: 480px) {
     .harga-grid { grid-template-columns: 1fr; }
-    .kategori-grid { grid-template-columns: repeat(3, 1fr); }
+    .kategori-grid { --hex-w: 90px; --hex-h: 100px; --hex-gap: 4px; }
     .proses-steps { grid-template-columns: 1fr 1fr; }
   }
 
@@ -742,19 +856,22 @@
     white-space: nowrap;
   }
 
-  .kf-btn:hover { border-color: rgba(232,0,29,0.5); color: white; }
+  .kf-btn:hover { border-color: rgba(0,123,255,0.5); color: white; }
 
   .kf-btn.active {
-    background: var(--merah);
-    border-color: var(--merah);
+    background: var(--biru);
+    border-color: var(--biru);
     color: white;
-    box-shadow: 0 4px 16px rgba(232,0,29,0.4);
+    box-shadow: 0 4px 16px rgba(0,123,255,0.4);
   }
 
   .katalog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    grid-template-columns: repeat(7, 1fr);
     gap: 10px;
+  }
+  @media (max-width: 768px) and (min-width: 481px) {
+    .katalog-grid { grid-template-columns: repeat(4, 1fr); }
   }
 
   .kg-item {
@@ -776,9 +893,9 @@
   }
 
   .kg-item:hover {
-    border-color: var(--merah);
+    border-color: var(--biru);
     transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(232,0,29,0.3);
+    box-shadow: 0 6px 20px rgba(0,123,255,0.3);
   }
 
   .kg-item:hover img { transform: scale(1.08); }
@@ -788,25 +905,48 @@
     .katalog-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .kf-btn { font-size: 11px; padding: 7px 12px; }
   }
-</style><div class="trust-bar"><div class="trust-scroll" id="trustbar-container"></div></div><section class="hero">
+</style><section class="hero">
+<div class="hero-content">
   <div class="hero-badge" id="dyn_hero_badge">🏆 #1 Pabrik Jersey Terpercaya</div><h1 class="hero-title">
-<span id="dyn_hero_title1">Jersey Custom</span><br>
-<span id="dyn_hero_title2" class="hl-color">Full Printing</span><br>
-<span id="dyn_hero_title3">Harga Pabrik</span></h1><p class="hero-subtitle">
-<span id="dyn_hero_subtitle">Langsung dari pabrik — bukan reseller.</span><br>
+<span id="dyn_hero_title1">ELITE JERSEY</span><br>
+<span id="dyn_hero_title2" class="hl-color" style="color: #007BFF;">CUSTOM PRINTING</span><br>
+<span id="dyn_hero_title3">HARGA PABRIK</span></h1><p class="hero-subtitle">
+<span id="dyn_hero_subtitle">Transformasi identitas tim Anda dengan jersey kualitas premium.<br>Langsung dari tangan pertama — bukan reseller.</span><br>
 <strong><span id="dyn_hero_promo">🎁 Promo Beli 6 Gratis 1</span></strong>
-</p><div class="hero-stats"><div class="stat-item"><div class="stat-number">10K+</div><div class="stat-label">Order Selesai</div></div><div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Kategori Olahraga</div></div><div class="stat-item"><div class="stat-number">4.9★</div><div class="stat-label">Rating Pelanggan</div></div><div class="stat-item"><div class="stat-number">⚡</div><div class="stat-label">Proses Cepat &amp; Tepat Waktu</div></div></div></section><div class="countdown-section"><div class="countdown-label">🔥 Promo Spesial — Berakhir Dalam:</div><div class="countdown-boxes"><div class="cd-box"><div class="cd-num" id="cd-hari">04</div><div class="cd-label">Hari</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-jam">23</div><div class="cd-label">Jam</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-menit">59</div><div class="cd-label">Menit</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-detik">48</div><div class="cd-label">Detik</div></div></div><div style="margin-top:20px;">
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" class="btn-wa btn-cta-wa" target="_blank" rel="noopener"><div class="btn-wa-pulse"></div>
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-<span id="dyn_hero_cta">Konsultasi &amp; Order Sekarang — GRATIS</span>
-</a></div></div><section class="usp-section"><div class="container"><h2 class="section-title">Kenapa Pilih <span>Braveline?</span></h2><p class="section-sub">Kami bukan reseller — kami pabriknya langsung</p><div class="usp-grid" id="dyn_usp_grid"><div class="usp-card"><span class="usp-icon">🏭</span><div class="usp-title">Langsung Pabrik</div><div class="usp-desc">Tidak ada perantara. Harga lebih murah, kualitas lebih terjamin karena dikerjakan sendiri.</div></div><div class="usp-card"><span class="usp-icon">🎨</span><div class="usp-title">Full Custom Desain</div><div class="usp-desc">Desain bebas sesuai keinginan. Ada tim desainer kami yang siap bantu wujudkan ide kamu.</div></div><div class="usp-card"><span class="usp-icon">⚡</span><div class="usp-title">Proses Cepat &amp; Tepat Waktu</div><div class="usp-desc">Dikerjakan langsung di pabrik sendiri, prosesnya cepat dan selalu tepat waktu sesuai kesepakatan.</div></div><div class="usp-card"><span class="usp-icon">🎁</span><div class="usp-title">Promo Beli 6 Gratis 1</div><div class="usp-desc">Hemat lebih banyak! Order 6 dapat 7, order 12 dapat 14 — berlaku untuk semua kelipatan.</div></div><div class="usp-card"><span class="usp-icon">✅</span><div class="usp-title">Bisa Order Satuan</div><div class="usp-desc">Tidak ada minimal order! Mau beli 1 pcs pun bisa. Cocok untuk siapa saja, kapanpun dibutuhkan.</div></div><div class="usp-card"><span class="usp-icon">🛡️</span><div class="usp-title">Garansi Kualitas</div><div class="usp-desc">Jaminan jahitan kuat, warna tidak mudah pudar, dan bahan nyaman dipakai seharian.</div></div></div></div></section><section class="harga-section"><div class="container"><h2 class="section-title">Harga <span>Transparan</span></h2><p class="section-sub">Langsung pabrik = harga lebih terjangkau dari toko retail</p><div class="harga-grid"><div class="harga-card"><div class="harga-kategori">Jersey Atasan Saja</div><div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;"><div><div class="harga-mulai">Ecer</div><div class="harga-angka" style="font-size:44px;">70rb</div><div class="harga-satuan">/ pcs</div></div><div style="width:1px;background:rgba(255,255,255,0.1);"></div><div><div class="harga-mulai">Lusin (12 pcs)</div><div class="harga-angka" style="font-size:44px;color:#00C853;">65rb</div><div class="harga-satuan">/ pcs</div></div></div><ul class="harga-fitur"><li>Jersey atasan full printing</li><li>Full custom desain bebas</li><li>Nama &amp; nomor punggung</li><li>Bisa order satuan</li><li>Proses cepat &amp; tepat waktu</li></ul>
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:block;background:#333;color:white;text-align:center;padding:14px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;transition:background 0.3s;" onmouseover="this.style.background='#E8001D'" onmouseout="this.style.background='#333'">Pesan Sekarang →</a></div><div class="harga-card featured"><div class="harga-badge">⭐ PALING DIMINATI</div><div class="harga-kategori">Jersey Setelan</div><div style="margin-bottom:4px;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;">Atasan + Celana</div><div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;"><div><div class="harga-mulai">Ecer</div><div class="harga-angka" style="font-size:44px;">115rb</div><div class="harga-satuan">/ stel</div></div><div style="width:1px;background:rgba(255,255,255,0.1);"></div><div><div class="harga-mulai">Lusin (12 stel)</div><div class="harga-angka" style="font-size:44px;color:#00C853;">110rb</div><div class="harga-satuan">/ stel</div></div></div><ul class="harga-fitur"><li>Jersey atasan + celana</li><li>Full custom desain bebas</li><li>Nama, nomor &amp; logo klub</li><li>Bisa order satuan</li><li>Proses cepat &amp; tepat waktu</li></ul>
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:block;background:var(--merah);color:white;text-align:center;padding:14px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;box-shadow:0 6px 24px rgba(232,0,29,0.4);">Pesan Sekarang →</a></div></div><div style="margin-top:32px;background:linear-gradient(135deg,#1a1500,#221a00);border:2px solid var(--kuning);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;"><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;"><div style="font-size:52px;line-height:1;">🎁</div><div><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--kuning);line-height:1.1;">PROMO SPESIAL: BELI 6 GRATIS 1</div><div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:4px;">Berlaku kelipatannya juga! &#160;·&#160; Order 6 dapat 7 &#160;·&#160; Order 12 dapat 14 &#160;·&#160; Order 18 dapat 21 &#160;·&#160; Berlaku untuk atasan maupun setelan</div></div></div>
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-block;background:var(--kuning);color:#0D0D0D;padding:14px 28px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 24px rgba(255,214,0,0.3);flex-shrink:0;">Klaim Promo →</a></div><div class="garansi-bar"><div class="garansi-item">✅ Garansi Harga Terbaik</div><div class="garansi-item">✅ Garansi Tepat Waktu</div><div class="garansi-item">✅ Garansi Kualitas Jahitan</div><div class="garansi-item">✅ Revisi Gratis</div></div></div></section><section class="kategori-section"><div class="container"><h2 class="section-title">Semua <span>Kategori</span> Tersedia</h2><p class="section-sub">Jersey untuk semua jenis olahraga &amp; komunitas</p><div class="kategori-grid"><div class="kategori-item"><span class="kategori-emoji">⚽</span><div class="kategori-nama">Futsal / Sepakbola</div></div><div class="kategori-item"><span class="kategori-emoji">🏸</span><div class="kategori-nama">Badminton</div></div><div class="kategori-item"><span class="kategori-emoji">🏐</span><div class="kategori-nama">Voli</div></div><div class="kategori-item"><span class="kategori-emoji">🚴</span><div class="kategori-nama">Road Bike</div></div><div class="kategori-item"><span class="kategori-emoji">🏀</span><div class="kategori-nama">Basket</div></div><div class="kategori-item"><span class="kategori-emoji">🎮</span><div class="kategori-nama">Esport / Gaming</div></div><div class="kategori-item"><span class="kategori-emoji">🥋</span><div class="kategori-nama">Taekwondo / Silat</div></div><div class="kategori-item"><span class="kategori-emoji">🏊</span><div class="kategori-nama">Akuatik</div></div><div class="kategori-item"><span class="kategori-emoji">🚵</span><div class="kategori-nama">MTB</div></div><div class="kategori-item"><span class="kategori-emoji">🎽</span><div class="kategori-nama">Senam</div></div><div class="kategori-item"><span class="kategori-emoji">🎣</span><div class="kategori-nama">Mancing</div></div><div class="kategori-item"><span class="kategori-emoji">🪖</span><div class="kategori-nama">TNI / Militer</div></div><div class="kategori-item"><span class="kategori-emoji">🏎️</span><div class="kategori-nama">Racing</div></div><div class="kategori-item"><span class="kategori-emoji">🐦</span><div class="kategori-nama">Kicau Mania</div></div><div class="kategori-item"><span class="kategori-emoji">🌙</span><div class="kategori-nama">Lebaran / Seragam</div></div></div></div></section><section class="katalog-section" style="background: var(--hitam); padding: 80px 20px;"><div class="container"><h2 class="section-title">Katalog <span>Desain</span> Jersey</h2><p class="section-sub">Ratusan desain siap pakai — pilih kategori olahraga favoritmu</p><div class="katalog-filter" id="katalogFilter"></div><div class="katalog-grid" id="katalogGrid"><!-- Dynamic items loaded from Supabase --></div><div id="katalogInfo" style="text-align:center;margin-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">
+</p>
+
+<div class="hero-actions">
+  <a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" class="btn-wa">🚀 Konsultasi di WA</a>
+  <a href="#katalogGrid" class="btn-catalog">👀 Lihat Katalog</a>
+</div>
+
+<div class="hero-stats"><div class="stat-item"><div class="stat-number" style="color: #007BFF;">10K+</div><div class="stat-label">TIM SELESAI</div></div><div class="stat-item"><div class="stat-number" style="color: #007BFF;">100%</div><div class="stat-label">GARANSI</div></div><div class="stat-item"><div class="stat-number" style="color: #007BFF;">4.9★</div><div class="stat-label">RATING</div></div><div class="stat-item"><div class="stat-number" style="color: #007BFF;">100K+</div><div class="stat-label">BISA DESAIN</div></div></div>
+</div>
+</section>
+<section class="usp-section"><div class="container"><h2 class="section-title">Kenapa Pilih <span>Braveline?</span></h2><p class="section-sub">Kami bukan reseller — kami pabriknya langsung</p><div class="usp-grid" id="dyn_usp_grid">
+<div class="usp-card"><span class="usp-icon">🏭</span><div class="usp-title">Langsung Pabrik</div><div class="usp-desc">Produksi sendiri,bukan reseller-kualitas terkontrol harga lebih kompetitif</div></div>
+<div class="usp-card"><span class="usp-icon">💯</span><div class="usp-title">Full Custom Desain</div><div class="usp-desc">Desain bebas sesuai keinginan. Kami mempunyai tim desain yang siap suport pengerjaan jersey kamu.</div></div>
+<div class="usp-card"><span class="usp-icon">🔥</span><div class="usp-title">Proses Cepat &amp; Sesuai deadline</div><div class="usp-desc">Dikerjakan oleh tenaga ahli yang berpengalaman di bidang nya,proses cepat dan tepat waktu</div></div>
+<div class="usp-card"><span class="usp-icon">🎁</span><div class="usp-title">Promo Beli 6 Gratis 1</div><div class="usp-desc">Beli 6 GRATIS 1 {berlaku kelipatan}-makin banyak makin hemat</div></div>
+<div class="usp-card"><span class="usp-icon">👏</span><div class="usp-title">Garansi Kualitas</div><div class="usp-desc">kami menggunakan mesin standar jepang dan tinta original,jersey kamu terlihat lebih cerah,jahitan kuat.JIka ada rijek kami ganti baru</div></div>
+</div></div></section>
+<div class="trust-bar"><div class="trust-scroll" id="trustbar-container"></div></div>
+<section class="harga-section"><div class="container"><h2 class="section-title">Harga <span>Transparan</span></h2><p class="section-sub">Langsung pabrik = harga lebih terjangkau dari toko retail</p><div class="harga-grid"><div class="harga-card"><div class="harga-kategori">Jersey Atasan Saja</div><div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;"><div><div class="harga-mulai">Ecer</div><div class="harga-angka" style="font-size:44px;">70rb</div><div class="harga-satuan">/ pcs</div></div><div style="width:1px;background:rgba(255,255,255,0.1);"></div><div><div class="harga-mulai">Lusin (12 pcs)</div><div class="harga-angka" style="font-size:44px;color:#00C853;">65rb</div><div class="harga-satuan">/ pcs</div></div></div><ul class="harga-fitur"><li>Jersey atasan full printing</li><li>Full custom desain bebas</li><li>Nama &amp; nomor punggung</li><li>Bisa order satuan</li><li>Proses cepat &amp; tepat waktu</li></ul>
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:block;background:#333;color:white;text-align:center;padding:14px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;transition:background 0.3s;" onmouseover="this.style.background='#007BFF'" onmouseout="this.style.background='#333'">Pesan Sekarang →</a></div><div class="harga-card featured"><div class="harga-badge">⭐ PALING DIMINATI</div><div class="harga-kategori">Jersey Setelan</div><div style="margin-bottom:4px;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;">Atasan + Celana</div><div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;"><div><div class="harga-mulai">Ecer</div><div class="harga-angka" style="font-size:44px;">115rb</div><div class="harga-satuan">/ stel</div></div><div style="width:1px;background:rgba(255,255,255,0.1);"></div><div><div class="harga-mulai">Lusin (12 stel)</div><div class="harga-angka" style="font-size:44px;color:#00C853;">110rb</div><div class="harga-satuan">/ stel</div></div></div><ul class="harga-fitur"><li>Jersey atasan + celana</li><li>Full custom desain bebas</li><li>Nama, nomor &amp; logo klub</li><li>Bisa order satuan</li><li>Proses cepat &amp; tepat waktu</li></ul>
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:block;background:var(--biru);color:white;text-align:center;padding:14px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;box-shadow:0 6px 24px rgba(0,123,255,0.4);">Pesan Sekarang →</a></div></div><div style="margin-top:32px;background:linear-gradient(135deg,#1a1500,#221a00);border:2px solid var(--kuning);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;"><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;"><div style="font-size:52px;line-height:1;">🎁</div><div><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--kuning);line-height:1.1;">PROMO SPESIAL: BELI 6 GRATIS 1</div><div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:4px;">Berlaku kelipatannya juga! &#160;·&#160; Order 6 dapat 7 &#160;·&#160; Order 12 dapat 14 &#160;·&#160; Order 18 dapat 21 &#160;·&#160; Berlaku untuk atasan maupun setelan</div></div></div>
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-block;background:var(--kuning);color:#0D0D0D;padding:14px 28px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 24px rgba(255,214,0,0.3);flex-shrink:0;">Klaim Promo →</a></div><div class="garansi-bar"><div class="garansi-item">✅ Garansi Harga Terbaik</div><div class="garansi-item">✅ Garansi Tepat Waktu</div><div class="garansi-item">✅ Garansi Kualitas Jahitan</div><div class="garansi-item">✅ Revisi Gratis</div></div></div></section><section class="kategori-section"><div class="container"><h2 class="section-title">Semua <span>Kategori</span> Tersedia</h2><p class="section-sub">Jersey untuk semua jenis olahraga &amp; komunitas</p><div class="kategori-grid"><div class="kategori-item"><span class="kategori-emoji">⚽</span><div class="kategori-nama">Futsal / Sepakbola</div></div><div class="kategori-item"><span class="kategori-emoji">🏸</span><div class="kategori-nama">Badminton</div></div><div class="kategori-item"><span class="kategori-emoji">🏐</span><div class="kategori-nama">Voli</div></div><div class="kategori-item"><span class="kategori-emoji">🚴</span><div class="kategori-nama">Road Bike</div></div><div class="kategori-item"><span class="kategori-emoji">🏀</span><div class="kategori-nama">Basket</div></div><div class="kategori-item"><span class="kategori-emoji">🎮</span><div class="kategori-nama">Esport / Gaming</div></div><div class="kategori-item"><span class="kategori-emoji">🥋</span><div class="kategori-nama">Taekwondo / Silat</div></div><div class="kategori-item"><span class="kategori-emoji">🏊</span><div class="kategori-nama">Akuatik</div></div><div class="kategori-item"><span class="kategori-emoji">🚵</span><div class="kategori-nama">MTB</div></div><div class="kategori-item"><span class="kategori-emoji">🎽</span><div class="kategori-nama">Senam</div></div><div class="kategori-item"><span class="kategori-emoji">🎣</span><div class="kategori-nama">Mancing</div></div><div class="kategori-item"><span class="kategori-emoji">🪖</span><div class="kategori-nama">TNI / Militer</div></div><div class="kategori-item"><span class="kategori-emoji">🏎️</span><div class="kategori-nama">Racing</div></div><div class="kategori-item"><span class="kategori-emoji">🐦</span><div class="kategori-nama">Kicau Mania</div></div><div class="kategori-item"><span class="kategori-emoji">🌙</span><div class="kategori-nama">Lebaran / Seragam</div></div></div></div></section><section class="katalog-section" style="background: var(--hitam); padding: 80px 20px;"><div class="container"><h2 class="section-title">Katalog <span>Desain</span> Jersey</h2><p class="section-sub">Ratusan desain siap pakai — pilih kategori olahraga favoritmu</p><div class="katalog-filter" id="katalogFilter"></div><div class="katalog-grid" id="katalogGrid"><!-- Dynamic items loaded from Supabase --></div><div style="text-align:center;margin-top:24px;"><button id="btnLoadMoreKatalog" style="display:none;background:transparent;border:1px solid rgba(255,255,255,0.2);color:white;font-weight:700;font-size:13px;padding:10px 24px;border-radius:50px;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='white'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)'">Lihat Desain Lainnya &#x25BC;</button></div><div id="katalogInfo" style="text-align:center;margin-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">
 Menampilkan <span id="katalogCount">55</span> desain</div><div style="text-align:center;margin-top:36px;">
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-flex;align-items:center;gap:10px;background:var(--merah);color:white;padding:16px 36px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 6px 24px rgba(232,0,29,0.35);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 36px rgba(232,0,29,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(232,0,29,0.35)'">
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-flex;align-items:center;gap:10px;background:var(--biru);color:white;padding:16px 36px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 6px 24px rgba(0,123,255,0.35);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 36px rgba(0,123,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(0,123,255,0.35)'">
 Punya Desain Sendiri? Chat &amp; Order Sekarang →
-</a></div></div></section> <section class="proses-section"><div class="container"><h2 class="section-title">Cara <span>Order</span> — Mudah!</h2><p class="section-sub">Cukup 5 langkah, jersey langsung ke tanganmu</p><div class="proses-steps"><div class="proses-step"><div class="step-num">1</div><span class="step-icon">💬</span><div class="step-title">Chat WA</div><div class="step-desc">Hubungi kami via WhatsApp, ceritakan kebutuhan jersey kamu</div></div><div class="proses-step"><div class="step-num">2</div><span class="step-icon">🎨</span><div class="step-title">Desain</div><div class="step-desc">Tim desainer kami bantu buat mockup jersey sesuai keinginan</div></div><div class="proses-step"><div class="step-num">3</div><span class="step-icon">✅</span><div class="step-title">ACC &amp; DP</div><div class="step-desc">Setujui desain, lakukan DP 50%, produksi langsung dimulai</div></div><div class="proses-step"><div class="step-num">4</div><span class="step-icon">🏭</span><div class="step-title">Produksi</div><div class="step-desc">Jersey diproduksi langsung di pabrik kami dengan cepat dan tepat waktu</div></div><div class="proses-step"><div class="step-num">5</div><span class="step-icon">🚚</span><div class="step-title">Pengiriman</div><div class="step-desc">Jersey dikemas rapi dan aman, dikirim ke alamatmu. Jersey siap dipakai!</div></div></div></div></section>
+</a></div></div></section>
+
+<div class="countdown-section"><div class="countdown-label">🔥 PROMO SPESIAL — BERAKHIR DALAM:</div><div class="countdown-boxes"><div class="cd-box"><div class="cd-num" id="cd-hari">02</div><div class="cd-label">Hari</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-jam">20</div><div class="cd-label">Jam</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-menit">47</div><div class="cd-label">Menit</div></div><div class="cd-sep">:</div><div class="cd-box"><div class="cd-num" id="cd-detik">56</div><div class="cd-label">Detik</div></div></div>
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" class="countdown-cta" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+<span id="dyn_hero_cta">🚀 KONSULTASI GRATIS</span>
+</a></div>
+
+<section class="proses-section"><div class="container"><h2 class="section-title">Cara <span>Order</span> — Mudah!</h2><p class="section-sub">Cukup 5 langkah, jersey langsung ke tanganmu</p><div class="proses-steps"><div class="proses-step"><div class="step-num">1</div><span class="step-icon">💬</span><div class="step-title">Chat WA</div><div class="step-desc">Hubungi kami via WhatsApp, ceritakan kebutuhan jersey kamu</div></div><div class="proses-step"><div class="step-num">2</div><span class="step-icon">🎨</span><div class="step-title">Desain</div><div class="step-desc">Tim desainer kami bantu buat mockup jersey sesuai keinginan</div></div><div class="proses-step"><div class="step-num">3</div><span class="step-icon">✅</span><div class="step-title">ACC &amp; DP</div><div class="step-desc">Setujui desain, lakukan DP 50%, produksi langsung dimulai</div></div><div class="proses-step"><div class="step-num">4</div><span class="step-icon">🏭</span><div class="step-title">Produksi</div><div class="step-desc">Jersey diproduksi langsung di pabrik kami dengan cepat dan tepat waktu</div></div><div class="proses-step"><div class="step-num">5</div><span class="step-icon">🚚</span><div class="step-title">Pengiriman</div><div class="step-desc">Jersey dikemas rapi dan aman, dikirim ke alamatmu. Jersey siap dipakai!</div></div></div></div></section>
 
 <!-- SECTION: BRAVELINE REGIONAL -->
 <section class="regional-section" id="dyn_regional_section" style="background: linear-gradient(135deg, #0a1a0a 0%, #0D0D0D 40%, #1a0a00 100%); padding: 80px 20px; position: relative; overflow: hidden;">
@@ -838,8 +978,8 @@ Punya Desain Sendiri? Chat &amp; Order Sekarang →
 </div>
 </section>
 
-<section class="testi-section"><div class="container"><h2 class="section-title">Kata <span>Pelanggan</span> Kami</h2><p class="section-sub">Ribuan tim &amp; komunitas sudah percaya Braveline</p><div class="testi-grid" id="dyn_testi_grid"></div><div style="margin-top:56px;"><h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;text-align:center;margin-bottom:8px;">📸 Hasil <span style="color:var(--merah);">Nyata</span> dari Pelanggan Kami</h3><p style="text-align:center;color:rgba(255,255,255,0.5);font-size:14px;margin-bottom:28px;">Foto asli jersey yang sudah diterima pelanggan — bukan edit, bukan rekayasa</p><div style="position:relative;overflow:hidden;border-radius:16px;"><div style="position:absolute;top:0;left:0;width:80px;height:100%;background:linear-gradient(to right,var(--hitam),transparent);z-index:2;pointer-events:none;"></div><div style="position:absolute;top:0;right:0;width:80px;height:100%;background:linear-gradient(to left,var(--hitam),transparent);z-index:2;pointer-events:none;"></div><div id="carousel-track" style="display: flex; gap: 16px; width: max-content; will-change: transform; transform: translateX(0px);"></div></div></div><div style="text-align:center;margin-top:28px;">
-<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-flex;align-items:center;gap:10px;background:var(--merah);color:white;padding:14px 32px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 6px 24px rgba(232,0,29,0.35);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 36px rgba(232,0,29,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(232,0,29,0.35)'">
+<section class="testi-section"><div class="container"><h2 class="section-title">Kata <span>Pelanggan</span> Kami</h2><p class="section-sub">Ribuan tim &amp; komunitas sudah percaya Braveline</p></div><div style="position:relative;overflow:hidden;width:100%;"><div style="position:absolute;top:0;left:0;width:80px;height:100%;background:linear-gradient(to right,var(--hitam),transparent);z-index:3;pointer-events:none;"></div><div style="position:absolute;top:0;right:0;width:80px;height:100%;background:linear-gradient(to left,var(--hitam),transparent);z-index:3;pointer-events:none;"></div><div class="testi-grid" id="dyn_testi_grid"></div></div><div class="container"><div style="margin-top:56px;"><h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;text-align:center;margin-bottom:8px;">📸 Hasil <span style="color:var(--biru);">Nyata</span> dari Pelanggan Kami</h3><p style="text-align:center;color:rgba(255,255,255,0.5);font-size:14px;margin-bottom:28px;">Foto asli jersey yang sudah diterima pelanggan — bukan edit, bukan rekayasa</p><div style="position:relative;overflow:hidden;border-radius:16px;"><div style="position:absolute;top:0;left:0;width:80px;height:100%;background:linear-gradient(to right,var(--hitam),transparent);z-index:2;pointer-events:none;"></div><div style="position:absolute;top:0;right:0;width:80px;height:100%;background:linear-gradient(to left,var(--hitam),transparent);z-index:2;pointer-events:none;"></div><div id="carousel-track" style="display: flex; gap: 16px; width: max-content; will-change: transform; transform: translateX(0px);"></div></div></div><div style="text-align:center;margin-top:28px;">
+<a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" target="_blank" class="btn-cta-wa" style="display:inline-flex;align-items:center;gap:10px;background:var(--biru);color:white;padding:14px 32px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 6px 24px rgba(0,123,255,0.35);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 36px rgba(0,123,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(0,123,255,0.35)'">
 Mau Jersey Seperti Ini? Order Sekarang →
 </a></div></div> </div></section><section class="faq-section"><div class="container" style="max-width:720px"><h2 class="section-title">Pertanyaan <span>Sering Ditanya</span></h2><p class="section-sub">Jawaban lengkap untuk kekhawatiranmu</p><div id="dyn_faq_list"></div></div></section><section class="final-cta" id="final-cta"><div class="container"><h2 class="final-cta-title">Siap Pesan<br>Jersey Custom?</h2><p class="final-cta-sub">Konsultasi GRATIS, tanpa syarat. Tim kami siap bantu dari desain hingga pengiriman.</p>
 <a href="https://wa.me/6285199227070?text=Halo%20Braveline%2C%20saya%20mau%20konsultasi%20jersey%20custom" class="btn-wa-big btn-cta-wa" target="_blank" rel="noopener">
@@ -891,13 +1031,13 @@ Chat WhatsApp Sekarang — GRATIS
   }
   .pp-card {
     background: #1a1a1a;
-    border: 1px solid rgba(232,0,29,0.3);
+    border: 1px solid rgba(0,123,255,0.3);
     border-radius: 20px;
     max-width: 420px;
     width: 100%;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(232,0,29,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,123,255,0.15);
     transform: scale(0.9) translateY(30px);
     opacity: 0;
     transition: transform 0.35s cubic-bezier(.22,.61,.36,1), opacity 0.3s ease;
@@ -911,7 +1051,7 @@ Chat WhatsApp Sekarang — GRATIS
     transition: all 0.2s ease;
     line-height: 1;
   }
-  .pp-close:hover { background: var(--merah); transform: rotate(90deg); }
+  .pp-close:hover { background: var(--biru); transform: rotate(90deg); }
   .pp-img-wrap {
     width: 100%; aspect-ratio: 1;
     background: #111; overflow: hidden;
@@ -922,7 +1062,7 @@ Chat WhatsApp Sekarang — GRATIS
   }
   .pp-body { padding: 20px 24px 24px; }
   .pp-promo {
-    background: var(--merah);
+    background: var(--biru);
     color: white; font-size: 11px; font-weight: 900;
     letter-spacing: 1.5px; text-transform: uppercase;
     padding: 4px 12px; border-radius: 50px;
@@ -947,13 +1087,13 @@ Chat WhatsApp Sekarang — GRATIS
     transition: all 0.3s ease; cursor: pointer;
   }
   .pp-btn-market {
-    background: linear-gradient(135deg, #FF6B35, #E8001D);
+    background: linear-gradient(135deg, #FF6B35, #007BFF);
     color: white;
-    box-shadow: 0 4px 20px rgba(232,0,29,0.35);
+    box-shadow: 0 4px 20px rgba(0,123,255,0.35);
   }
   .pp-btn-market:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(232,0,29,0.5);
+    box-shadow: 0 8px 30px rgba(0,123,255,0.5);
   }
   .pp-btn-wa {
     background: linear-gradient(135deg, #25D366, #128C7E);
@@ -976,7 +1116,7 @@ Chat WhatsApp Sekarang — GRATIS
 .footer-inner{max-width:1100px;margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px}
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:36px;padding:48px 20px 32px}}
 .footer-brand{display:flex;flex-direction:column;gap:12px}
-.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;color:var(--merah);line-height:1;letter-spacing:2px}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;color:var(--biru);line-height:1;letter-spacing:2px}
 .footer-tagline{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7}
 .footer-wa-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);color:white;font-size:13px;font-weight:900;padding:12px 20px;border-radius:50px;text-decoration:none;margin-top:8px;width:fit-content;transition:all 0.3s ease;box-shadow:0 4px 20px rgba(37,211,102,0.3)}
 .footer-wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.5)}
@@ -984,7 +1124,7 @@ Chat WhatsApp Sekarang — GRATIS
 .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .footer-address{display:flex;flex-direction:column;gap:12px}
 .footer-addr-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6}
-.footer-addr-item .fi{color:var(--merah);font-size:15px;flex-shrink:0;margin-top:2px}
+.footer-addr-item .fi{color:var(--biru);font-size:15px;flex-shrink:0;margin-top:2px}
 .footer-addr-item a{color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
 .footer-addr-item a:hover{color:var(--kuning)}
 .footer-map{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);margin-top:4px}
@@ -1251,7 +1391,7 @@ Chat WhatsApp Sekarang — GRATIS
       if (testiData && !testiError) {
           const testiContainer = document.getElementById('dyn_testi_grid');
           if (testiContainer) {
-              testiContainer.innerHTML = testiData.map(item => `
+              const cardsHtml = testiData.map(item => `
                 <div class="testi-card">
                   <div class="testi-verified">&#x2713; Verified Buyer</div>
                   <div class="testi-stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
@@ -1265,6 +1405,31 @@ Chat WhatsApp Sekarang — GRATIS
                   </div>
                 </div>
               `).join('');
+
+              // Duplicate cards for seamless infinite scroll
+              testiContainer.innerHTML = cardsHtml + cardsHtml;
+
+              // Create infinite scroll animation
+              const totalCards = testiData.length;
+              const cardWidth = 320 + 20; // card width + gap
+              const totalScrollWidth = totalCards * cardWidth;
+              const scrollSpeed = 80; // pixels per second
+              const duration = totalScrollWidth / scrollSpeed;
+
+              const testiStyle = document.createElement('style');
+              testiStyle.innerHTML = `
+                @keyframes testiScroll {
+                  0% { transform: translateX(-${totalScrollWidth}px); }
+                  100% { transform: translateX(0); }
+                }
+                .testi-grid {
+                  animation: testiScroll ${duration}s linear infinite;
+                }
+                .testi-grid:hover {
+                  animation-play-state: paused;
+                }
+              `;
+              document.head.appendChild(testiStyle);
           }
       }
 
@@ -1373,23 +1538,51 @@ Chat WhatsApp Sekarang — GRATIS
           const buttons = document.querySelectorAll('.kf-btn');
           const items = document.querySelectorAll('.kg-item');
           const counter = document.getElementById('katalogCount');
+          const btnLoadMore = document.getElementById('btnLoadMoreKatalog');
+          let currentLimit = window.innerWidth <= 480 ? 9 : 14;
+          let currentCategory = '';
           
           const updateCount = () => {
             const visible = document.querySelectorAll('.kg-item:not(.hidden)').length;
             if(counter) counter.textContent = visible;
           };
+          
           const filterGallery = (cat) => {
+            currentCategory = cat;
+            let matchCount = 0;
             items.forEach(item => {
-              if(cat === 'semua' || item.dataset.cat === cat) item.classList.remove('hidden');
-              else item.classList.add('hidden');
+              const isMatch = (cat === 'semua' || item.dataset.cat === cat);
+              if(isMatch) {
+                matchCount++;
+                if (matchCount <= currentLimit) {
+                  item.classList.remove('hidden');
+                } else {
+                  item.classList.add('hidden');
+                }
+              } else {
+                item.classList.add('hidden');
+              }
             });
+            
+            if (btnLoadMore) {
+               if (matchCount > currentLimit) btnLoadMore.style.display = 'inline-block';
+               else btnLoadMore.style.display = 'none';
+            }
             updateCount();
           };
+
+          if (btnLoadMore) {
+            btnLoadMore.addEventListener('click', () => {
+              currentLimit += (window.innerWidth <= 480 ? 9 : 14);
+              filterGallery(currentCategory);
+            });
+          }
           
           buttons.forEach(btn => {
             btn.addEventListener('click', () => {
               buttons.forEach(b => b.classList.remove('active'));
               btn.classList.add('active');
+              currentLimit = window.innerWidth <= 480 ? 9 : 14;
               filterGallery(btn.dataset.cat);
             });
           });
