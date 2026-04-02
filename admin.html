@@ -768,7 +768,7 @@
                 if (error) throw error;
 
                 if (isValid) {
-                    localStorage.setItem('braveline_auth', 'true');
+                    localStorage.setItem('brv_rev_auth', 'true');
                     confirmAuth();
                 } else {
                     errorMsg.classList.remove('hidden');
@@ -790,7 +790,7 @@
         }
 
         function logout() {
-            localStorage.removeItem('braveline_auth');
+            localStorage.removeItem('brv_rev_auth');
             location.reload();
         }
 
@@ -820,14 +820,14 @@
 
         // DATA LOADING
         async function loadInitialData() {
-            const { data: heroData } = await sb.from('braveline_hero').select('*');
+            const { data: heroData } = await sb.from('brv_rev_hero').select('*');
             if (heroData) {
                 heroData.forEach(item => {
                     const el = document.querySelector(`[data-key="${item.key}"]`);
                     if (el) el.value = item.value;
                 });
             }
-            const { data: settingsData } = await sb.from('braveline_site_settings').select('*');
+            const { data: settingsData } = await sb.from('brv_rev_site_settings').select('*');
             if (settingsData) {
                 settingsData.forEach(item => {
                     const el = document.querySelector(`[data-key="${item.key}"]`);
@@ -839,7 +839,7 @@
         // --- MODULE LOGICS ---
 
         async function loadCarousel() {
-            const { data } = await sb.from('braveline_carousel').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_carousel').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('carousel-list');
             list.innerHTML = data?.map(item => `
                 <div class="card" style="padding: 0; position: relative">
@@ -854,7 +854,7 @@
         }
 
         async function loadTestimonial() {
-            const { data } = await sb.from('braveline_testimonials').select('*').order('created_at', { ascending: false });
+            const { data } = await sb.from('brv_rev_testimonials').select('*').order('created_at', { ascending: false });
             const list = document.getElementById('testimonial-list');
             list.innerHTML = data?.map(item => `
                 <div class="card">
@@ -872,7 +872,7 @@
         }
 
         async function loadFAQ() {
-            const { data } = await sb.from('braveline_faq').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_faq').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('faq-list');
             list.innerHTML = data?.map(item => `
                 <div class="card" style="margin-bottom: 1rem;">
@@ -893,7 +893,7 @@
 
         async function loadTrustBarSpeed() {
             try {
-                const { data } = await sb.from('braveline_site_settings').select('value').eq('key', 'trust_bar_speed').single();
+                const { data } = await sb.from('brv_rev_site_settings').select('value').eq('key', 'trust_bar_speed').single();
                 if (data && data.value) {
                     document.getElementById('trustbar-speed').value = data.value;
                 }
@@ -907,7 +907,7 @@
             const btn = document.querySelector('button[onclick="saveTrustBarSpeed()"]');
             btn.textContent = "Menyimpan...";
             
-            const { error } = await sb.from('braveline_site_settings').upsert({ key: 'trust_bar_speed', value: speed });
+            const { error } = await sb.from('brv_rev_site_settings').upsert({ key: 'trust_bar_speed', value: speed });
             
             btn.textContent = "SIMPAN KECEPATAN";
             if (error) alert('Gagal menyimpan kecepatan: ' + error.message);
@@ -916,7 +916,7 @@
 
         async function loadTrustBar() {
             loadTrustBarSpeed();
-            const { data } = await sb.from('braveline_trust_bar').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_trust_bar').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('trustbar-list');
             list.innerHTML = data?.map(item => `
                 <div class="card">
@@ -933,7 +933,7 @@
         }
 
         async function loadUSP() {
-            const { data } = await sb.from('braveline_usp_cards').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_usp_cards').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('usp-list');
             list.innerHTML = data?.map(item => `
                 <div class="card">
@@ -949,7 +949,7 @@
         }
 
         async function loadHarga() {
-            const { data } = await sb.from('braveline_harga_paket').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_harga_paket').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('harga-list');
             list.innerHTML = data?.map(item => `
                 <div class="card" style="${item.is_featured ? 'border-color: var(--secondary); box-shadow: 0 0 10px rgba(255,204,0,0.2)' : ''}">
@@ -968,7 +968,7 @@
         }
 
         async function loadKatalog() {
-            const { data } = await sb.from('braveline_katalog').select('*').order('created_at', { ascending: false });
+            const { data } = await sb.from('brv_rev_katalog').select('*').order('created_at', { ascending: false });
             const list = document.getElementById('katalog-list');
             list.innerHTML = data?.map(item => `
                 <div class="card" style="padding: 0; overflow: hidden;">
@@ -989,7 +989,7 @@
         }
 
         async function loadKategori() {
-            const { data } = await sb.from('braveline_kategori').select('*').order('urutan', { ascending: true });
+            const { data } = await sb.from('brv_rev_kategori').select('*').order('urutan', { ascending: true });
             const list = document.getElementById('kategori-list');
             list.innerHTML = data?.map(item => `
                 <div class="card">
@@ -1006,7 +1006,7 @@
         }
 
         async function loadProses() {
-            const { data } = await sb.from('braveline_proses_order').select('*').order('nomor', { ascending: true });
+            const { data } = await sb.from('brv_rev_proses_order').select('*').order('nomor', { ascending: true });
             const list = document.getElementById('proses-list');
             list.innerHTML = data?.map(item => `
                 <div class="card" style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1rem;">
@@ -1172,7 +1172,7 @@
             fields.innerHTML = html;
             
             if (type === 'katalog') {
-                const { data: cats } = await sb.from('braveline_kategori').select('*').order('urutan', { ascending: true });
+                const { data: cats } = await sb.from('brv_rev_kategori').select('*').order('urutan', { ascending: true });
                 const selectEl = document.getElementById('katalog-kategori-select');
                 if (selectEl) {
                     selectEl.innerHTML = cats ? cats.map(c => `<option value="${c.kode_filter}">${c.nama}</option>`).join('') : '<option value="">Tidak ada kategori</option>';
@@ -1185,14 +1185,14 @@
 
         async function fillModalData(type, id) {
             const tableMap = { 
-                'trustbar': 'braveline_trust_bar',
-                'usp': 'braveline_usp_cards', 
-                'harga': 'braveline_harga_paket', 
-                'katalog': 'braveline_katalog',
-                'kategori': 'braveline_kategori',
-                'testimonial': 'braveline_testimonials',
-                'faq': 'braveline_faq',
-                'proses': 'braveline_proses_order'
+                'trustbar': 'brv_rev_trust_bar',
+                'usp': 'brv_rev_usp_cards', 
+                'harga': 'brv_rev_harga_paket', 
+                'katalog': 'brv_rev_katalog',
+                'kategori': 'brv_rev_kategori',
+                'testimonial': 'brv_rev_testimonials',
+                'faq': 'brv_rev_faq',
+                'proses': 'brv_rev_proses_order'
             };
             const { data } = await sb.from(tableMap[type]).select('*').eq('id', id).single();
             if (data) {
@@ -1213,12 +1213,12 @@
             const type = e.target.getAttribute('data-type');
             const id = document.getElementById('modal-id').value;
             const tableMap = { 
-                'trustbar': 'braveline_trust_bar',
-                'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
-                'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
-                'kategori': 'braveline_kategori',
-                'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
-                'proses': 'braveline_proses_order'
+                'trustbar': 'brv_rev_trust_bar',
+                'usp': 'brv_rev_usp_cards', 'harga': 'brv_rev_harga_paket', 
+                'katalog': 'brv_rev_katalog', 'carousel': 'brv_rev_carousel',
+                'kategori': 'brv_rev_kategori',
+                'testimonial': 'brv_rev_testimonials', 'faq': 'brv_rev_faq',
+                'proses': 'brv_rev_proses_order'
             };
             const bucketMap = { 'katalog': 'braveline-katalog', 'carousel': 'braveline-carousel', 'testimonial': 'braveline-avatar' };
             
@@ -1261,12 +1261,12 @@
         async function deleteItem(type, id) {
             if (!confirm("Hapus data ini?")) return;
             const tableMap = { 
-                'trustbar': 'braveline_trust_bar',
-                'usp': 'braveline_usp_cards', 'harga': 'braveline_harga_paket', 
-                'katalog': 'braveline_katalog', 'carousel': 'braveline_carousel',
-                'kategori': 'braveline_kategori',
-                'testimonial': 'braveline_testimonials', 'faq': 'braveline_faq',
-                'proses': 'braveline_proses_order'
+                'trustbar': 'brv_rev_trust_bar',
+                'usp': 'brv_rev_usp_cards', 'harga': 'brv_rev_harga_paket', 
+                'katalog': 'brv_rev_katalog', 'carousel': 'brv_rev_carousel',
+                'kategori': 'brv_rev_kategori',
+                'testimonial': 'brv_rev_testimonials', 'faq': 'brv_rev_faq',
+                'proses': 'brv_rev_proses_order'
             };
             const { error } = await sb.from(tableMap[type]).delete().eq('id', id);
             if (!error) {
@@ -1286,7 +1286,7 @@
         async function saveHeroData() {
             const inputs = document.querySelectorAll('#sec-hero [data-key]');
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
-            const { error } = await sb.from('braveline_hero').upsert(updates, { onConflict: 'key' });
+            const { error } = await sb.from('brv_rev_hero').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Hero Section Updated!");
             else alert("Error: " + error.message);
         }
@@ -1294,14 +1294,14 @@
         async function saveFooterData() {
             const inputs = document.querySelectorAll('#sec-footer [data-key]');
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
-            const { error } = await sb.from('braveline_site_settings').upsert(updates, { onConflict: 'key' });
+            const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Footer Info Updated!");
             else alert("Error: " + error.message);
         }
 
         async function loadRegionalData() {
             const keys = ['regional_badge','regional_title1','regional_title2','regional_desc','regional_bdg_label','regional_bdg_phone','regional_bdg_wa','regional_kal_label','regional_kal_phone','regional_kal_wa','regional_footnote'];
-            const { data } = await sb.from('braveline_site_settings').select('key, value').in('key', keys);
+            const { data } = await sb.from('brv_rev_site_settings').select('key, value').in('key', keys);
             if (data) {
                 data.forEach(item => {
                     const el = document.getElementById(item.key);
@@ -1313,7 +1313,7 @@
         async function saveRegionalData() {
             const inputs = document.querySelectorAll('#sec-regional [data-key]');
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
-            const { error } = await sb.from('braveline_site_settings').upsert(updates, { onConflict: 'key' });
+            const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Regional Section Updated!");
             else alert("Error: " + error.message);
         }
@@ -1321,7 +1321,7 @@
         async function saveGlobalSettings() {
             const inputs = document.querySelectorAll('#sec-settings [data-key]');
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
-            const { error } = await sb.from('braveline_site_settings').upsert(updates, { onConflict: 'key' });
+            const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Global Settings Updated!");
             else alert("Error: " + error.message);
         }
@@ -1385,7 +1385,7 @@
                 if (upErr) throw upErr;
                 const { data: urlData } = sb.storage.from('braveline-avatar').getPublicUrl(fileName);
                 const publicUrl = urlData.publicUrl;
-                const { error: saveErr } = await sb.from('braveline_site_settings').upsert({ key: settingKey, value: publicUrl }, { onConflict: 'key' });
+                const { error: saveErr } = await sb.from('brv_rev_site_settings').upsert({ key: settingKey, value: publicUrl }, { onConflict: 'key' });
                 if (saveErr) throw saveErr;
                 showToast(`${settingKey === 'site_logo_url' ? 'Logo' : 'Favicon'} berhasil diupload!`);
             } catch (err) {
@@ -1405,7 +1405,7 @@
         }
 
         // Check already logged in
-        if (localStorage.getItem('braveline_auth') === 'true') {
+        if (localStorage.getItem('brv_rev_auth') === 'true') {
             confirmAuth();
         }
 
