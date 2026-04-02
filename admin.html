@@ -298,6 +298,7 @@
                 <div class="nav-item" onclick="showSection('proses')"><i data-lucide="rocket"></i> <span>Cara Order</span></div>
                 <div class="nav-item" onclick="showSection('regional')"><i data-lucide="map-pin-plus"></i> <span>Regional</span></div>
                 <div class="nav-item" onclick="showSection('faq')"><i data-lucide="help-circle"></i> <span>Seksi FAQ</span></div>
+                <div class="nav-item" onclick="showSection('countdown')"><i data-lucide="timer"></i> <span>Countdown Promo</span></div>
                 <div class="nav-item" onclick="showSection('footer')"><i data-lucide="map-pin"></i> <span>Footer & Info</span></div>
                 <div style="flex:1"></div>
                 <div class="nav-item" onclick="showSection('settings')"><i data-lucide="settings"></i> <span>Pengaturan Global</span></div>
@@ -651,6 +652,19 @@
                 </div>
             </section>
 
+            <!-- COUNTDOWN SECTION -->
+            <section id="sec-countdown" class="content-sec hidden">
+                <div class="header">
+                    <h1>Countdown Promo</h1>
+                    <button class="btn" onclick="saveCountdown()">SIMPAN COUNTDOWN</button>
+                </div>
+                <div class="card">
+                    <div class="form-group"><label>Label Promo</label><input type="text" id="cd-label-inp"></div>
+                    <div class="form-group"><label>Waktu Berakhir</label><input type="datetime-local" id="cd-end-inp"></div>
+                    <div class="form-group"><label>Status</label><select id="cd-show-inp"><option value="true">Aktif</option><option value="false">Nonaktif</option></select></div>
+                </div>
+            </section>
+
             <!-- FOOTER & INFO SECTION -->
             <section id="sec-footer" class="content-sec hidden">
                 <div class="header"><h1>Footer & Info Kontak</h1></div>
@@ -815,6 +829,7 @@
             if (id === 'testimonial') loadTestimonial();
             if (id === 'faq') loadFAQ();
             if (id === 'proses') loadProses();
+            if (id === 'countdown') loadCountdown();
             if (id === 'regional') loadRegionalData();
         }
 
@@ -1107,6 +1122,7 @@
                     <div class="form-group"><label>Satuan Ecer</label><input type="text" name="satuan_ecer" value="/pcs"></div>
                     <div class="form-group"><label>Harga Lusin (Rp)</label><input type="number" name="harga_lusin"></div>
                     <div class="form-group"><label>Satuan Lusin</label><input type="text" name="satuan_lusin" value="/set"></div>
+                    <div class="form-group"><label>Fitur (Satu baris = satu poin)</label><textarea name="fitur_list_raw" rows="6" placeholder="Bahan Dryfit Premium&#10;Full Printing&#10;Bebas Nama & Nomor"></textarea></div>
                     <div class="form-group"><label>Unggulan?</label><select name="is_featured"><option value="false">Tidak</option><option value="true">Ya</option></select></div>
                     <div class="form-group"><label>Urutan</label><input type="number" name="urutan" value="0"></div>
                 `;
@@ -1200,6 +1216,10 @@
                 Object.keys(data).forEach(key => {
                     const input = form.querySelector(`[name="${key}"]`);
                     if (input) input.value = data[key];
+                    if (key === 'fitur_list' && data[key]) {
+                        const area = form.querySelector('[name="fitur_list_raw"]');
+                        if (area) area.value = data[key].join('\n');
+                    }
                     if ((key === 'image_url' || key === 'avatar_url') && data[key]) {
                         document.getElementById('preview').src = data[key];
                         document.getElementById('preview').style.display = 'block';
@@ -1230,6 +1250,11 @@
                 const formData = new FormData(e.target);
                 const data = Object.fromEntries(formData.entries());
                 
+                if (type === 'harga' && data.fitur_list_raw) {
+                    data.fitur_list = data.fitur_list_raw.split('\n').filter(l => l.trim() !== '');
+                    delete data.fitur_list_raw;
+                }
+
                 const fileInp = document.getElementById('file-inp');
                 if (fileInp && fileInp.files[0]) {
                     const url = await uploadToSupabase(fileInp.files[0], bucketMap[type]);
@@ -1323,6 +1348,32 @@
             const updates = Array.from(inputs).map(inp => ({ key: inp.getAttribute('data-key'), value: inp.value }));
             const { error } = await sb.from('brv_rev_site_settings').upsert(updates, { onConflict: 'key' });
             if (!error) showToast("Global Settings Updated!");
+            else alert("Error: " + error.message);
+        }
+
+        async function loadCountdown() {
+            const { data } = await sb.from('brv_rev_countdown').select('*').limit(1).single();
+            if (data) {
+                document.getElementById('cd-label-inp').value = data.label || '';
+                if (data.end_date) {
+                    const d = new Date(data.end_date);
+                    // Adjust to local datetime-local format (YYYY-MM-DDThh:mm)
+                    const offset = d.getTimezoneOffset() * 60000;
+                    const localISO = new Date(d.getTime() - offset).toISOString().slice(0, 16);
+                    document.getElementById('cd-end-inp').value = localISO;
+                }
+                document.getElementById('cd-show-inp').value = data.show ? "true" : "false";
+            }
+        }
+
+        async function saveCountdown() {
+            const data = {
+                label: document.getElementById('cd-label-inp').value,
+                end_date: document.getElementById('cd-end-inp').value,
+                show: document.getElementById('cd-show-inp').value === "true"
+            };
+            const { error } = await sb.from('brv_rev_countdown').upsert({ id: '00000000-0000-0000-0000-000000000001', ...data }, { onConflict: 'id' });
+            if (!error) showToast("Countdown Saved!");
             else alert("Error: " + error.message);
         }
 
